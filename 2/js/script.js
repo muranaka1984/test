@@ -6,8 +6,8 @@ $(window).on('load resize', function(){
   if(w <= 800){
     $('.gnavi').addClass("gnavi_sp");
     $(".gnavi_sp").css({
-      "left":"-" + (w + 80) + "px",
-      "width":(w - 80) + "px",
+      "left":"-" + (w + 120) + "px",
+      "width":(w - 120) + "px",
     });
 
     $(".sp_menu").click(function(){
@@ -21,7 +21,7 @@ $(window).on('load resize', function(){
     });
     $(".sp_menu_close").click(function(){
       TweenMax.to('.gnavi_sp', 0.4, {
-        left: "-" + (w + 80) + 'px',
+        left: "-" + (w + 120) + 'px',
         ease: Expo.easeIn
       });
       $(".sp_menu_close").css({
@@ -30,7 +30,7 @@ $(window).on('load resize', function(){
     });
     $(".nlink a").click(function(){
       TweenMax.to('.gnavi_sp', 0.4, {
-        left: "-" + (w + 80) + 'px',
+        left: "-" + (w + 120) + 'px',
         ease: Expo.easeIn
       });
       $(".sp_menu_close").css({

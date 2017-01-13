@@ -10,6 +10,7 @@ body{
   /*  background: #ececeb; */
   background: #fff;
   font-family:"YuGothic Medium","Yu Gothic Medium","游ゴシック Medium","游ゴシック体 Medium",YuGothic,"Yu Gothic","游ゴシック","游ゴシック体","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+  /* font-family: "Times New Roman" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif; */
   font-size:14px;
   line-height:200%;
 }
@@ -33,7 +34,7 @@ ul{list-style-type:none;}
 a{
   text-decoration:underline;
   transition : all 0.2s ease;
-  color:#1b2141;
+  color:#232330;
 }
 a:hover{
   color:#888;
@@ -103,7 +104,7 @@ img{
   font-size: 12px;
 }
 .header .logo{
-  max-width: 140px;
+  max-width: 113px;
   width: 20%;
   float: left;
   height: 50px;
@@ -144,7 +145,7 @@ img{
   text-decoration: none;
   position: relative;
   z-index: 2;
-  color: #1b2141;
+  color: #232330;
   line-height: 50px;
   overflow: hidden;
 }
@@ -180,7 +181,7 @@ img{
 }
 .gnavi li.nlink a:hover::after {
   top: 0;
-  background-color: #12141d;
+  background-color: #242330;
 }
 .icon_mail{
   position: absolute;
@@ -196,7 +197,7 @@ img{
   background: rgba(255,255,255,0.1);
 }
 .footer{
-  background: #101426;
+  background: #232330;
   width: 100%;
   color: rgba(255,255,255,0.7);
 }
@@ -323,7 +324,7 @@ a.button1{
   height: 100%;
 }
 .overlay{
-  background: #1b2141;
+  background: #232330;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -700,10 +701,11 @@ BLOG
 
 @media screen and (max-width: 1200px){
   .icon_mail{
-    top: 50px;
+    top: 70px;
     right: 10px;
   }
 }
+
 
 @media screen and (max-width: 800px){
   th,td{
@@ -720,9 +722,15 @@ BLOG
     padding: 0 16px;
   }
   .header .logo{
-    width: 200px;
     float: none;
     margin: 0 auto;
+    max-width: 200px;
+    width: 80%;
+    text-align: center;
+  }
+  .header .logo img{
+    height: 50px;
+    width: auto;    
   }
   .header .gnavi_sp{
     float: none;
