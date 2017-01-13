@@ -39,7 +39,7 @@ $(window).on('load resize', function(){
     });
   } else {
     $('.gnavi').removeClass("gnavi_sp");    
-    $(".gnavi_sp").css({
+    $(".gnavi").css({
       "left":"0",
       "width":"560px",
     });

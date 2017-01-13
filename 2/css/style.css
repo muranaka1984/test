@@ -82,19 +82,11 @@ img{
 
 #container{
   position: absolute;
-  top: 30px;
+  top: 40px;
   left: 0;
   height: 100%;
   width: 100%;
-}
-.container_overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 0;
-  height: 100%;
-  background: #232330;
+  opacity: 0;
 }
 .header{
   background: #fff;
@@ -748,7 +740,7 @@ BLOG
     left: 0;
     height: 100%;
     color: #fff;
-    background: #1b2141;
+    background: #232330;
     font-size: 14px;
   }
   .header .gnavi_sp li.tel,

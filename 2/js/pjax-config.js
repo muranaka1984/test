@@ -8,16 +8,18 @@
   });
 
   $(document).bind('pjax:fetch', function() {
-    TweenMax.to('.container_overlay', 0.6, {
-      width: '100%',
-      ease: Power1.easeOut, y: 0
+    TweenMax.to('#container', 0.5, {
+      top: '60px',
+      opacity: '0',
+      ease: Power2.easeOut, y: 0
     });
   });
 
   $(document).bind('pjax:render', function() {
-    TweenMax.to('.container_overlay', 0.6, {
-      width: '100%',
-      ease: Power1.easeIn, y: 0
+    TweenMax.to('#container', 0.5, {
+      top: '50px',
+      opacity: '1',
+      ease: Power2.easeOut, y: 0
     });
   });
 

@@ -103,15 +103,14 @@
     </div>
     <!--FOOTER-->
     <script>
-    $(function() {
-      TweenMax.to('.container_overlay', 0.6, {
-        width: '0',
-        ease: Power1.easeOut,
-        y: 0
+    $(function(){
+      TweenMax.to('#container', 0.5, {
+        top: '50px',
+        opacity: '1',
+        ease: Power2.easeOut, y: 0
       });
     });
     </script>
-    <div class="container_overlay"></div>
   </div>
   <!--CONTAINER-->
   <!--SPNAVI-->
