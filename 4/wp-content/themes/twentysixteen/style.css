@@ -1,3 +1,7 @@
+/*
+Theme Name: Twenty Sixteen
+*/
+
 @charset "utf-8";
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
 html,
@@ -628,6 +632,7 @@ BLOG
 .top_blog_list .archive_list .thumb img{
   vertical-align: bottom;
   transition : all 0.3s ease;
+  height: auto;
 }
 .top_blog_list .archive_list a:hover img{
   transform: scale3d(1.4,1.4,1.4);
@@ -898,3 +903,4 @@ BLOG
 .blue2{color:#0f7bc6;}
 .yellow{color:#FFEF3B;}
 .gray{color:#a6a6a6;}
+
