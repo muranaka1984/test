@@ -36,9 +36,18 @@
           <dt>BLOG</dt>
           <dd>
             <ul class="blog">
-              <li><a href=""><small>11.22</small>タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</a></li>
-              <li><a href=""><small>11.22</small>タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</a></li>
-              <li><a href=""><small>11.22</small>タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</a></li>
+              <?php query_posts('post_type=post&posts_per_page=5&order=ASC&orderby=menu_order'); ?>
+              <?php if(have_posts()): ?>
+                <?php while(have_posts()): the_post(); ?>
+                <li>
+                  <a href="<?php  the_permalink(); ?>">
+                    <small><?php the_time('n月j日'); ?></small>
+                    <?php echo mb_substr($post->post_title, 0, 32).''; ?>
+                  </a>
+                </li>
+                <?php endwhile; ?>
+              <?php endif; ?>
+              <?php wp_reset_postdata(); wp_reset_query(); ?>
             </ul>
           </dd>
         </dl>

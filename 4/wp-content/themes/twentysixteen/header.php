@@ -12,7 +12,11 @@
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 </head>
 
+<?php if ( is_page() ) : ?>
+<body <?php body_class(); ?> id="<?php echo esc_attr( $post->post_name ); ?>">
+<?php else: ?>
 <body <?php body_class(); ?>>
+<?php endif; ?>
 
 <?php if ( is_home() || is_front_page() ) : ?>
   <!--INTRO-->

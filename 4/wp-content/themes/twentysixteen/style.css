@@ -4,6 +4,10 @@ Theme Name: Twenty Sixteen
 
 @charset "utf-8";
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+html{
+  /* Safariでopacityの操作をすると描画がチラつく */
+  -webkit-font-smoothing: antialiased;
+}
 html,
 body{
   height:100%;
@@ -516,26 +520,26 @@ h1{
 /* ======================
 BLOG
 ====================== */
-.post-type-archive-blog{}
-.post-type-archive-blog .archive_list{
+body.archive{}
+body.archive .archive_list{
   font-size: 13px;
   margin-bottom: 70px;
 }
-.post-type-archive-blog .archive_list h2{
+body.archive .archive_list h2{
   font-size: 22px;
   margin-bottom: 30px;
 }
-.post-type-archive-blog .archive_list p{
+body.archive .archive_list p{
   margin-bottom: 3em;
 }
-.post-type-archive-blog .archive_list .thumb img{
+body.archive .archive_list .thumb img{
   max-width: 100%;
 }
-.post-type-archive-blog .archive_list_more{
+body.archive .archive_list_more{
   text-align: right;
 }
-.post-type-archive-blog .archive_list_more a{
-  background: #f1f1f1 url(../img/arrow_gray.png) no-repeat 5px 50%;
+body.archive .archive_list_more a{
+  background: #f1f1f1 url(img/arrow_gray.png) no-repeat 5px 50%;
   background-size: 4px auto;
   display: inline-block;
   padding: 0 10px;
@@ -544,11 +548,11 @@ BLOG
   font-size: 0.9em;
   border: 1px solid #f1f1f1;
 }
-.post-type-archive-blog .archive_list_more a:hover{
+body.archive .archive_list_more a:hover{
   background-color: #fff;
   border: 1px solid #aaa;
 }
-.post-type-archive-blog .archive_list_foot{
+body.archive .archive_list_foot{
   text-align: right;
 }
 
@@ -815,10 +819,10 @@ BLOG
     float: none;
     width: 100%;
   }
-  .post-type-archive-blog .archive_list h2{
+  body.archive.category .archive_list h2{
     margin-bottom: 16px;
   }
-  .post-type-archive-blog .archive_list_post p{
+  body.archive.category .archive_list_post p{
     margin-bottom: 16px;
   }
   .content{
@@ -838,7 +842,7 @@ BLOG
     box-sizing: border-box;
     padding: 16px 0;
   }
-  .post-type-archive-blog .archive_list p{
+  body.archive.category .archive_list p{
     margin-bottom: 1em;
   }
   .top_blog_list .archive_list .archive_list_foot{

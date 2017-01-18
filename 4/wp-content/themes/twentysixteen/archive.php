@@ -1,65 +1,99 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * If you'd like to further customize these archive views, you may create a
- * new template file for each one. For example, tag.php (Tag archives),
- * category.php (Category archives), author.php (Author archives), etc.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<h1><?php the_archive_title(); ?></h1>
 
-		<?php if ( have_posts() ) : ?>
+<div class="content">
+<div class="archive_list_main">
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
+<?php while(have_posts()): the_post(); ?>
+<!--ARCHIVE LIST-->
+  <div class="archive_list">
+    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+    <?php if(!is_post_type_archive()) :?>
+    <p>
 			<?php
-			// Start the Loop.
-			while ( have_posts() ) : the_post();
+			//brだけ残す
+			if(mb_strlen($post->post_content, 'UTF-8')>200){
+				$content= mb_substr(strip_tags($post->post_content, '<br>'), 0, 200, 'UTF-8');
+				echo $content.'...';
+			}else{
+				echo strip_tags($post->post_content, '<br>');
+			}
+			//brとspanを残す
+			if(mb_strlen($post->post_content, 'UTF-8')>200){
+				$content= mb_substr(strip_tags($post->post_content, '<br><span>'), 0, 200, 'UTF-8');
+				echo $content.'...';
+			}else{
+				echo strip_tags($post->post_content, '<br><span>');
+			}
+			?>
+    </p>
+    <p><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a></p>
+    <div class="archive_list_more"><a href="<?php the_permalink(); ?>">続きはこちら</a></div>
+	  <?php endif; ?>
+    <div class="archive_list_foot"><small><?php the_date(); ?></small>　<!--small>会社 太郎</small--></div>
+  </div>
+<!--ARCHIVE LIST-->
+<?php endwhile; ?>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+</div><!--archive_list_main-->
 
-			// End the loop.
-			endwhile;
 
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-				'next_text'          => __( 'Next page', 'twentysixteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-			) );
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'template-parts/content', 'none' );
+<?php if(is_post_type_archive('news')) :?>
+<div class="archive_list_sub">
+  <h3>お知らせ</h3>
+  <div class="news">
+    <ul>
+		<?php query_posts('post_type=news&posts_per_page=10&order=ASC&orderby=menu_order'); ?>
+      <?php while(have_posts()): the_post(); ?>
+      <li>
+        <a href="<?php  the_permalink(); ?>">
+          <?php echo mb_substr($post->post_title, 0, 48).''; ?>
+        </a>
+      </li>
+      <?php endwhile; ?>
+    <?php wp_reset_postdata(); wp_reset_query(); ?>
+    </ul>
+  </div>
+</div>
+<?php else: ?>
+<div class="archive_list_sub">
+  <h3>エントリー</h3>
+  <div class="news">
+    <ul>
+		<?php query_posts('post_type=post&posts_per_page=5&order=ASC&orderby=menu_order'); ?>
+      <?php while(have_posts()): the_post(); ?>
+      <li>
+        <a href="<?php  the_permalink(); ?>">
+          <?php echo mb_substr($post->post_title, 0, 48).''; ?>
+        </a>
+      </li>
+      <?php endwhile; ?>
+    <?php wp_reset_postdata(); wp_reset_query(); ?>
+    </ul>
+  </div>
+  <h3>カテゴリー</h3>
+  <div class="news">
+    <ul>
+      <?php wp_list_categories('title_li=&depth=1'); ?>
+    </ul>
+  </div>
+  <h3>アーカイブ</h3>
+  <div class="news">
+		<ul>
+			<?php wp_get_archives('show_post_count=1'); ?>
+		</ul>
+	</div>
+</div>
+<!--archive_list_sub-->
+<?php endif; ?>
 
-		endif;
-		?>
 
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
+
+<br clear="cb">
+</div>
+
 <?php get_footer(); ?>

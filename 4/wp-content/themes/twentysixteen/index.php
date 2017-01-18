@@ -16,7 +16,7 @@
   <p>御社様と生産者様を繋げるお手伝いを通し北海道の活性化、発展のお手伝いが少しでも寄与出来れば幸いです。</p>
 </div>
 <div class="content">
-  <h2 class="c_tt">事業内容</h2>
+  <h2 class="c_tt">取り扱い商品</h2>
 </div>
 
 <?php if(have_posts()): ?>
@@ -27,7 +27,7 @@
   <div class="archive_list">
     <a href="<?php  the_permalink(); ?>">
       <p class="thumb"><?php the_post_thumbnail('medium'); ?></p>
-      <h3><?php echo mb_substr($post->post_title, 0, 16).'...'; ?></h3>
+      <h3><?php echo mb_substr($post->post_title, 0, 32).'...'; ?></h3>
       <div class="archive_list_foot"><small><?php the_date(); ?></small></div>
     </a>
   </div>

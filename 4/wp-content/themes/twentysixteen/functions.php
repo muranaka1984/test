@@ -451,4 +451,28 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 
+//アーカイブの投稿数をaタグの中に
+function wp_list_categories_archives( $output ) {
+    $output = str_replace("&nbsp;", " ", $output);
+    $output = preg_replace('/<\/a> \(([0-9]*)\)/', ' (${1})</a>', $output);
+    return $output;
+}
+add_filter( 'wp_list_categories', 'wp_list_categories_archives', 10, 2 );
+add_filter( 'get_archives_link', 'wp_list_categories_archives', 10, 2 );
+
+// アーカイブタイトルのアレンジ
+add_filter( 'get_the_archive_title', function ($title) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_month() ) {
+		$date = single_month_title('',false);
+		$pos  = strpos($date, '月');
+		$title = mb_substr($date, $pos+1).'年'.mb_substr($date, 0, $pos+1);
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	} 
+	return $title;
+});
 
