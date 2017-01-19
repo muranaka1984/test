@@ -10,6 +10,8 @@
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/pjax.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/pjax-config.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/pace.min.js"></script>
+  <link href="<?php echo get_template_directory_uri(); ?>/js/themes/pace-theme-minimal.css" rel="stylesheet">
 </head>
 
 <?php if ( is_page() ) : ?>
