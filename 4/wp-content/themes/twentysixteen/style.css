@@ -86,6 +86,7 @@ a img:hover{
 }
 img{
   max-width: 100%;
+  height: auto;
 }
 
 #container{
@@ -706,6 +707,57 @@ body.archive .archive_list_foot{
   text-align: center;
   font-size: 16px;
 }
+
+
+/* CONTACT FORM7 */
+div.wpcf7{
+  max-width: 700px;
+  margin: 0 auto;
+}
+.wpcf7 .wpcf7-submit{
+  border:1px solid #232330;
+  border-radius: 5px;
+  background: linear-gradient(#232330, #383849);
+  color:#fff;
+  font-size:18px;
+  line-height:160%;
+  padding:12px 18px;
+  font-weight:bold;
+  cursor: pointer;
+  transition : all 0.2s ease;
+}
+.wpcf7 .wpcf7-submit:hover{
+  background: linear-gradient(#474753, #575769);
+  color: #fff;
+}
+.wpcf7 input.wpcf7-submit[type="submit"][disabled],
+.wpcf7 input.wpcf7-submit[type="submit"][disabled]:hover{
+  border:1px solid #f1f1f1;
+  background: #d5d5d5;
+  color:#f1f1f1;
+}
+.hissu{
+  display:inline-block;
+  border:1px solid #ec0000;
+  border-radius: 5px;
+  background:#ec0000;
+  color:#fff;
+  font-size:11px;
+  line-height:120%;
+  padding:4px 8px 4px 8px;
+  margin:0 10px;
+}
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea{
+  max-width: 450px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.wpcf7 table th{
+  text-align: right;
+}
+
 
 
 @media screen and (max-width: 1200px){
