@@ -1,36 +1,46 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
-?>
-
-
 <div class="footer">
   <div class="base">
     <div align="right"><p class="pagetop"><img src="<?php bloginfo('template_directory'); ?>/img/pagetop.png" alt="pagetop"></p></div>
-    <ul class="footer_sns">
-      <!--li class="facebook">
-        <a href="https://www.facebook.com//" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/footer_content_facebook.png" alt="Facebook"></a>
-      </li-->
-      <li class="youtube">
-        <a href="https://www.youtube.com/channel/UCPn1f_DoaLq9LrF9PO4JRiA" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/footer_content_youtube.png" alt="YouTube"></a>
-      </li>
-    </ul>
+
+    <h3><a href="/">ホーム</a></h3>
+
+    <h3>CONTENT</h3>
     <ul class="footer_link">
-      <li><a href="http://www.giragira-night.club/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/sogolink02.png" alt="ソープランド ギラギラナイト"></a></li>
-      <li><a href="http://www.night-lover.club/" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/sogolink01.png" alt="ソープランド ナイトラバー"></a></li>
+      <li><a href="/news/">お知らせ</a></li>
+      <li><a href="/girls/">ガールズ</a></li>
+      <li><a href="/ranking/">ランキング</a></li>
+      <li><a href="/schedule/">スケジュール</a></li>
+      <li><a href="/event/">イベント</a></li>
+      <li><a href="/system/price_system/">システム</a></li>
+      <li><a href="/blog/">ブログ</a></li>
+      <?php wp_list_pages('title_li=&exclude=2'); ?>
     </ul>
+
+
+    <?php query_posts('post_type=system'); ?>
+    <?php if (have_posts()): while(have_posts()): the_post();?>
+    <h3>GUIDE</h3>
+    <ul class="footer_link">
+    <?php if(post_custom('Googleマップ')): ?>
+      <li><a href="/access/">アクセス</a></li>
+    <?php endif; ?>
+      <li><a href="/contact/">お問い合わせフォーム</a></li>
+     <?php if(post_custom('電話番号')): ?>
+        <li><a href="tel:<?php echo post_custom('電話番号'); ?>">TEL : <?php echo post_custom('電話番号'); ?></a></li>
+      <?php endif; ?>
+    </ul>
+    <?php endwhile; endif; ?>
+    <?php wp_reset_postdata(); wp_reset_query(); ?>
+
+
     <div class="copyright">© <?php echo date('Y'); ?> <?php bloginfo('name'); ?></div>
   </div>
 </div>
 
 </div><!-- /container -->
+
+<img src="<?php bloginfo('template_directory'); ?>/img/icon_menu.png" class="sp_menu" width="62">
+<img src="<?php bloginfo('template_directory'); ?>/img/icon_menu_close.png" class="sp_menu_close" width="62">
 
 
 <dl class="modal">

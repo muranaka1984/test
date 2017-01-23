@@ -516,10 +516,10 @@ function dashboard_text() {
 	get_currentuserinfo();
 
 	if ($current_user->ID == "4" ) {
-		echo '<p class="loginname">【ナイトラバー】でログイン中です</p>';
+		echo '<p class="loginname">【A】でログイン中です</p>';
 	}
 	if ($current_user->ID == "3" ) {
-		echo '<p class="loginname">【ギラギラナイト】でログイン中です</p>';
+		echo '<p class="loginname">【B】でログイン中です</p>';
 	}
 	echo '<a href="'.wp_logout_url().'" class="logoutbtn">ログアウトする</a>';
 
@@ -527,16 +527,19 @@ function dashboard_text() {
 	echo '<ul class="dashboard_navi">
 	<li><a href="edit.php"><span>お知らせ</span></a></li>
 	<li><a href="edit.php?post_type=girls"><span>ガールズ管理</span></a></li>
-	<li><a href="edit.php?post_type=blog"><span>ブログG</span></a></li>
-	<li><a href="edit.php?post_type=blog_night"><span>ブログN</span></a></li>
+	<li><a href="edit.php?post_type=blog"><span>ブログ</span></a></li>
 	</ul>';
 
+	echo '<iframe class="analytics" src="/analytics/analytics_nl.php"></iframe>';
+
+/*
 	if ($current_user->ID == "4" ) {
 		echo '<iframe class="analytics" src="/analytics/analytics_nl.php"></iframe><iframe class="analytics" src="/analytics/analytics_gr.php"></iframe>';
 	}
 	else {
 		echo '<iframe class="analytics" src="/analytics/analytics_gr.php"></iframe><iframe class="analytics" src="/analytics/analytics_nl.php"></iframe>';
 	}
+	*/
 	echo '<div class="dashboard_content">
 	<h2>お知らせ</h2><br>
 	写真がない時には、こちらの画像をダウンロードしてお使いください。
@@ -550,29 +553,30 @@ function dashboard_text() {
 }
 
 // 投稿一覧画面にカスタムフィールドの表示カラムを追加
+
 function my_posts_columns( $defaults ) {
-	$defaults['ギラギラナイト'] = 'ギラギラナイト';
-	$defaults['ナイトラバー'] = 'ナイトラバー';
+	$defaults['GG'] = '写真';
+//	$defaults['NN'] = 'NN';
 	$defaults['待機中'] = '待機中';
-	$defaults['指名料'] = '指名料';
+//	$defaults['指名料'] = '指名料';
  	return $defaults;
 }
 add_filter( 'manage_posts_columns', 'my_posts_columns' );
 function my_posts_custom_column( $column, $post_id ) {
 	switch ( $column ) {
-		case 'ギラギラナイト':
+		case 'GG':
 			$post_meta = get_the_title();
 			if ( $post_meta ) {
 			//echo $post_meta;
-				echo wp_get_attachment_image(get_post_meta($post_id, 'ギラギラナイト写真1', true),'thumbnail');
+				echo wp_get_attachment_image(get_post_meta($post_id, '写真', true),'thumbnail');
 			}
 			break;
-		case 'ナイトラバー':
+/*		case 'NN':
 			$post_meta = get_the_title();
 			if ( $post_meta ) {
-				echo wp_get_attachment_image(get_post_meta($post_id, 'ナイトラバー写真1', true),'thumbnail');
+				echo wp_get_attachment_image(get_post_meta($post_id, 'NN写真1', true),'thumbnail');
 			}
-			break;
+			break; */
 		case '待機中':
 			//チェックボックスの場合
 			if ( !!get_post_meta( $post_id , '待機中' , true ) ) {
@@ -584,15 +588,16 @@ function my_posts_custom_column( $column, $post_id ) {
 //			echo "<input type='checkbox' readonly $checked >";
 			echo $checked;
 			break;
-		case '指名料':
+/*		case '指名料':
 			$post_meta = get_post_meta( $post_id, '指名料', true );
 			if ( $post_meta ) {
 				 echo $post_meta;
 			}
-			break;
+			break; */
 	}
 }
 add_action( 'manage_posts_custom_column' , 'my_posts_custom_column', 10, 2 );
+
 
 // ログイン画面 カスタマイズ
 function custom_login() { ?>
@@ -650,6 +655,7 @@ remove_action('wp_head', 'wp_generator');
 
 
 // クイック編集にカスタムフィールドの入力フォームを表示
+/*
 function display_my_custom_quickedit( $column_name, $post_type ) {
     static $print_nonce = TRUE;
     if ( $print_nonce ) {
@@ -678,6 +684,7 @@ function display_my_custom_quickedit( $column_name, $post_type ) {
 <?php
 }
 add_action( 'quick_edit_custom_box', 'display_my_custom_quickedit', 10, 2 );
+*/
 
 // 管理ページ（投稿一覧）でスクリプトの読み込み
 function my_admin_edit_foot() {

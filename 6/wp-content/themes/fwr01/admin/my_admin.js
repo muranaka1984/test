@@ -63,7 +63,7 @@
 
 
     //$('#dashboard-widgets').load("/analytics.php");
-    $('body').append("<div class=\"my_admin_guide\"><h1>営業サイトへ</h1><ul><li><a href=\"http://www.giragira-night.club/\" target=\"_blank\">ギラギラナイト</a></li><li><a href=\"http://www.night-lover.club/\" target=\"_blank\">ナイトラバー</a></li></ul></div>");
+    $('body').append("<div class=\"my_admin_guide\"><h1>営業サイト</h1><ul><li><a href=\"/\">営業サイトを見る</a></li></ul></div>");
 
 
 	 };

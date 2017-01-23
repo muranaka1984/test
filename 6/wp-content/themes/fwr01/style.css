@@ -4,8 +4,8 @@ Theme Name: FWR01
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
 body{
-  color:#e3e3e3;
-  background: #000;
+  color:#333;
+  background: #fff;
   /*  background:#000 url(./img/bg.png);*/
   font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
   font-size:16px;
@@ -17,7 +17,7 @@ table{
 }
 th,td{
   padding:1em;
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  border-bottom:1px solid rgba(0,0,0,0.1);
 }
 th{
   font-weight:normal;
@@ -30,10 +30,11 @@ ul{list-style-type:none;}
 a{
   text-decoration: none;
   transition : all 0.2s ease;
-  color:#ffde00;
+  color:#333;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
 }
 a:hover{
-  color:#ff2f51;
+  color:#666;
 }
 /* input */
 input[type="text"]{}
@@ -82,15 +83,14 @@ GNAVI
 =========================*/
 
 .global_navi{
-	overflow-y: scroll;
-  width: 500px;
+  overflow-y: scroll;
 }
 
 .global_navi ul,
 .global_navi .global_navi_header{
 /*
-	width: 60%;
-	margin-left: 35%;
+  width: 60%;
+  margin-left: 35%;
   */
   margin-left: 70px;
 }
@@ -103,32 +103,28 @@ GNAVI
   letter-spacing: 2px;
 }
 .global_navi ul li a{
-	height: 62px;
-	box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
-  color:#e3e3e3;
+  color:#333;
   padding: 10px 15px;
   text-decoration: none;
-  border-top: 1px solid rgba(180,180,180,0.3);
+  border-top: 1px solid rgba(0,0,0,0.2);
 }
 .global_navi ul li img{
-	width: 8px;
-	vertical-align: middle;
-	margin-right: 5px;
-}
-.global_navi ul li a:hover{
-	background: rgba(110,110,110,0.3);
+  width: 8px;
+  vertical-align: middle;
+  margin-right: 5px;
 }
 .global_navi ul li small{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   display: block;
   font-size: 9px;
   font-weight: normal;
-  color: #aaa;
+  color: #000;
   margin-bottom: 3px;
 }
 .sp_menu_base{
-	cursor: pointer;
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
@@ -136,7 +132,8 @@ GNAVI
 }
 .sp_menu,
 .sp_menu_close{
-	cursor: pointer;
+  display: none;
+  cursor: pointer;
   position: fixed;
   top: 0;
   left: 0;
@@ -146,31 +143,31 @@ GNAVI
   z-index: 1000;
 }
 .admin-bar .global_navi{
-	padding-top: 32px !important;	
 }
 .admin-bar .sp_menu,
 .admin-bar .sp_menu_close{
-	top: 32px;
+  top: 32px;
 }
 .global_navi .sub{
-	display: table;
-	width: 100%;
-	padding-left: 70px;
-  box-sizing: border-box;
+  text-align: right;
+  background: #333;
 }
 .global_navi .sub ul{
-	display: table-cell;
-	width: 50%;
+  overflow: hidden;
 }
 .global_navi .sub ul li{
-  font-size: 13px;
+  font-size: 12px;
+  display: inline-block;
+  float: right;
 }
 .global_navi .sub ul li a{
-	height: auto;
+  color: #fff;
+  padding: 4px;
+}
+.global_navi .sub ul li a:hover{
+  color: #000;
 }
 .global_navi .first_link{
-	display: block;
-	margin: 20px 0;
 }
 .global_navi .access_info{
   box-sizing: border-box;
@@ -191,44 +188,48 @@ GNAVI
 GNAVI PC
 =========================*/
 .global_navi_pc{
-/*  border-bottom: 4px solid rgba(211,7,168,0.6);*/
   margin-bottom: 30px;
+  box-shadow: 0 4px 4px 1px rgba(100,100,100,0.2); 
 }
 .global_navi_pc ul{
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;  
-  overflow: hidden;
+  display: table;
 }
 .global_navi_pc li{
-  width: 14%;
-  float: left;
-  box-sizing: border-box;
-  border-right: 1px solid rgba(255,255,255,0.1);
+  display: table-cell;
+  vertical-align: middle;
 }
 .container_language_en .global_navi_pc li{
-  width: 16%;
+  line-height: 100%;
 }
-.global_navi_pc li:last-child{
-  width: 16%;
-  border-right:none;
-}
-.global_navi_pc li a{
-  color: rgba(255,255,255,0.8);
+.global_navi_pc ul li a{
+  border-right: 1px solid rgba(0,0,0,0.1);
+  color: rgba(0,0,0,1.0);
   display: block;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   padding: 15px 0;
   font-weight: bold;
-  border-bottom: 3px solid rgba(211,7,168,0);
+  border-top: none;
+}
+.global_navi_pc li:last-child a{
+  border-right:none;
+}
+.global_navi_pc .sub ul li a{
+  font-size: 11px;
+  padding: 6px;
+  border-bottom: none;
+  display: inline-block;
 }
 .global_navi_pc li a small{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   display: block;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 100%;
   font-weight: normal;
-  color: rgba(255,255,255,0.5);
-  margin-top: 3px;
+  color: rgba(0,0,0,0.4);
   padding-top: 3px;
 }
 .home .global_navi_pc li.gnavi_home a,
@@ -243,12 +244,12 @@ GNAVI PC
   background: rgba(155,155,155,0.3);
 }
 .global_navi_pc li a:hover{
-  background: rgba(99,99,99,0.2);
-  border-bottom: 3px solid rgba(211,7,168,0.6);
+  background: #f1f1f1;
 }
-.global_navi_pc li a img{
-  vertical-align: middle;
+.global_navi_pc .sub ul li a:hover{
+  border-bottom: none;
 }
+
 
 .global_navi_pc .global_navi_language_ja li{
   width: 13%;
@@ -273,37 +274,52 @@ GNAVI PC
 
 
 
+/*=========================
+GNAVI SP
+=========================*/
+.global_navi_sp{
+  position:fixed;
+  top:0;
+  height:100%;
+  z-index:3000;
+  background:#000;
+}
+
+
+
 /* FOOTER */
 .footer{
-  box-shadow: 0 10px 10px 1px rgba(0,0,0,0.4) inset;
-/*  background:#000 url(./img/bg.png) repeat center bottom; */
-  background:#000 url(./img/bg.png) no-repeat 0 50%;
-  background-size: cover;
+/*  box-shadow: 0 10px 10px 1px rgba(100,100,100,0.1) inset;
+  background:#000 url(./img/bg.png) repeat center bottom; */
+  background:#f1f1f1; 
   clear: both;
-  text-align: center;
+  text-align: left;
   font-size: 12px;
   padding-bottom: 80px;
 }
-.footer_sns{
-  padding: 40px 0 40px;
+.footer_link,
+.footer h3{
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.footer_sns li{
-  display: inline-block;
-}
-.footer_sns li img{
-  height: 57px;
-  margin: 0 10px;
+.footer h3{
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';  
 }
 .footer_link li{
   display: inline-block;
   margin: 0 10px;
 }
-.footer_link li img{
-  width: 200px;
+.footer_link li a{
+  display: inline-block;
+  padding: 3px 6px;
+}
+.footer_link li a:hover{
+  background: #ddd;
 }
 .copyright{
   font-size: 9px;
   padding-top: 30px;
+  text-align: center;
 }
 .pagetop img{
   vertical-align: bottom;
@@ -312,8 +328,8 @@ GNAVI PC
   display: inline-block;
   cursor: pointer;
   position: relative;
-  border:1px solid #000000;
-  background: #000000;
+  border:1px solid #fff;
+  background: #fff;
 }
 .pagetop:hover{
 }
@@ -348,31 +364,31 @@ GNAVI PC
 
 /* AGE CHECK */
 .modal{
-	position:fixed;
-	display:none;
-	z-index:9999;
-	top:30%;
-	left:50%;
-	width:270px;
-	height:180px;
-	margin:-50px 0 0 -135px;
-	padding:5px;
-	text-align:center;
-	color:#fff;
-	font-size:0.9em;
-	line-height:130%;
-	border-radius: 6px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
+  position:fixed;
+  display:none;
+  z-index:9999;
+  top:30%;
+  left:50%;
+  width:270px;
+  height:180px;
+  margin:-50px 0 0 -135px;
+  padding:5px;
+  text-align:center;
+  color:#fff;
+  font-size:0.9em;
+  line-height:130%;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
 }
 .modal span{
-	margin-bottom:20px;
-	display:inline-block;
+  margin-bottom:20px;
+  display:inline-block;
 }
 .modal a{
-	margin-bottom:10px;
-	cursor:pointer;
-	background:#000;
+  margin-bottom:10px;
+  cursor:pointer;
+  background:#000;
   display: inline-block;
   color:#fff;
   padding:8px 15px;
@@ -382,8 +398,8 @@ GNAVI PC
   margin: 0 10px;
 }
 .modal a:hover{
-	background:#fff;
-	color:#52330f;
+  background:#fff;
+  color:#52330f;
 }
 .modal dt img{
   max-width: 100%;
@@ -460,7 +476,7 @@ GNAVI PC
 #wp-admin-bar-comments,
 #wp-admin-bar-customize,
 #wp-admin-bar-wp-logo{
-	display: none;
+  display: none;
 }
 
 /* CONTENT */
@@ -478,18 +494,18 @@ body.home .wrapper.wrapper_header{
   padding: 0;
 }
 .wrapper_header{
-/*  background:#000 url(./img/bg.png) repeat 0 20%; */
-  background:#000 url(./img/bg.png) no-repeat;
+  /*  background:#000 url(./img/bg.png) repeat 0 20%; */
+/*  background:#000 url(./img/bg.png) no-repeat;
   background-size: cover;
-  box-shadow: 0 -10px 10px 1px rgba(0,0,0,0.4) inset;
+  box-shadow: 0 -10px 10px 1px rgba(0,0,0,0.4) inset;*/
 }
 .wrapper_header .head{
   position: relative;
 }
 .wrapper_header .logo img,
 .wrapper_header .tel img{
-  max-height: 100px;
-  vertical-align: bottom;
+  max-height: 70px;
+  vertical-align: middle;
 }
 .wrapper_header .logo img{
 }
@@ -497,34 +513,43 @@ body.home .wrapper.wrapper_header{
   margin-left: 5px;
 }
 .wrapper_header .logo,
-.wrapper_header .tel{
+.wrapper_header .tel,
+.wrapper_header .time,
+.wrapper_header .type{
   display: inline;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
+}
+.wrapper_header .type{
+  font-size: 11px;
 }
 .wrapper_header .tel{
+  margin: 0 10px;
 }
 .content{
-	max-width: 1200px;
-	margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .c_tt{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 180px;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
+  font-size: 55px;
   line-height: 100%;
   font-weight: normal;
-  text-align: center;
-  color: rgba(155,155,155,0.3);
-  /*  text-shadow: 0 2px 3px rgba(255,255,255,0.1); */
+  text-align: left;
+  color: #333;
   padding-bottom: 20px;
   /*  border-bottom: 1px solid rgba(255,255,255,0.1); */
   margin-bottom: 50px;
 }
+.c_tt.center{
+  text-align: center;
+}
 .c_tt small{
-	display: block;
+  display: block;
   font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
-  font-size: 24px;	
+  font-size: 24px;  
   line-height: 110%;
   font-weight: bold;
-  color: rgba(255,255,255,0.8);
+  color: #333;
 }
 .youtube_tt{
   background: #f1f1f1; 
@@ -542,33 +567,33 @@ body.home .wrapper.wrapper_header{
   font-size: 18px;  
 }
 .cast_todayschedule{
-	width: 25%;
-	float: left;
-	display: block;
-	position: relative;
+  width: 25%;
+  float: left;
+  display: block;
+  position: relative;
   border:1px solid rgba(255,255,255,0);
   box-sizing: border-box;
   word-break: break-all;
-  color:#e3e3e3;
+  color:#333;
 }
 .cast_todayschedule dl{
-	opacity: 0;
-	position: relative;
-	top: 100px;
-	left: 0;
-	overflow: hidden;
+  opacity: 0;
+  position: relative;
+  top: 100px;
+  left: 0;
+  overflow: hidden;
 }
 .cast_todayschedule dl img{
-	max-width: 100%;
-	vertical-align: bottom;
+  max-width: 100%;
+  vertical-align: bottom;
 }
 .cast_todayschedule dl dd{
-	position: absolute;
-	bottom: 0;
-	left: -1000px;
-	font-size: 11px;
-	line-height: 150%;
-	padding: 8px;
+  position: absolute;
+  bottom: 0;
+  left: -1000px;
+  font-size: 11px;
+  line-height: 150%;
+  padding: 8px;
 }
 .cast_todayschedule dl dd .name{
   margin-top: 5px;
@@ -589,10 +614,11 @@ body.home .wrapper.wrapper_header{
   line-height: 21px;
   vertical-align: middle;
   text-align: center;
-  background: rgba(211,7,168,0.4);
+  background: rgba(255,90,0,1);
   border-radius: 3px;
-  border: 1px solid #000; 
+  border: 1px solid #d65712; 
   box-sizing: border-box;
+  color: #fff;
 }
 .style_ranking .icon_type{
 }
@@ -603,7 +629,7 @@ body.home .wrapper.wrapper_header{
   margin-right: 0;
 }
 a:hover .icon_type span{
-  color: #e3e3e3;
+  color: #fff;
 }
 .home .icon_type span:first-child,
 .post-type-archive-girls .icon_type span:first-child{
@@ -613,44 +639,7 @@ a:hover .icon_type span{
 .post-type-archive-girls .icon_type{
   padding-top: 3px;
 }
-/*
-.icon_type .icon_reco{
-  background: #6b5124;
-}
-.icon_type .icon_style{
-  background: #628e05;
-}
-.icon_type .icon_kando{
-  background: #ca05cc;
-}
-.icon_type .icon_ninki{
-  background: #be0000;
-}
-.icon_type .icon_slender{
-  background: #424e82;
-}
-.icon_type .icon_kirei{
-  background: #5e0056;
-}
-.icon_type .icon_iyashi{
-  background: #50a3e9;
-}
-.icon_type .icon_glammer{
-  background: #4e17a1;
-}
-.icon_type .icon_amature{
-  background: #3e8a6c;
-}
-.icon_type .icon_binyuu{
-  background: #c13dad;
-}
-.icon_type .icon_bikyaku{
-  background: #776e58;
-}
-.icon_type .icon_akarui{
-  background: #de7e02;
-}
-*/
+
 
 .cast_todayschedule dl dd .name .age{
   font-size: 15px;
@@ -660,17 +649,17 @@ a:hover .icon_type span{
   font-size: 15px;
 }
 .cast_todayschedule dl dd .time{
-	font-size: 18px;
-	font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
   margin: 8px 0;
 }
 .cast_todayschedule dl dd .tt{
-	font-size: 10px;
-	font-weight: bold;	
+  font-size: 10px;
+  font-weight: bold;  
   margin-right: 4px;
 }
 .cast_todayschedule:hover{
-  color: #e3e3e3;
+  color: #666;
 }
 .cast_todayschedule::before,
 .cast_todayschedule::after {
@@ -684,13 +673,13 @@ a:hover .icon_type span{
   transition: all .3s;
 }
 .cast_todayschedule::before {
-  border-top: 1px solid rgba(255,255,255,1);
-  border-bottom: 1px solid rgba(255,255,255,1);
+  border-top: 1px solid rgba(0,0,0,1);
+  border-bottom: 1px solid rgba(0,0,0,1);
   transform: scale(0, 1);
 }
 .cast_todayschedule::after {
-  border-right: 1px solid rgba(255,255,255,1);
-  border-left: 1px solid rgba(255,255,255,1);
+  border-right: 1px solid rgba(0,0,0,1);
+  border-left: 1px solid rgba(0,0,0,1);
   transform: scale(1, 0);
 }
 .cast_todayschedule:hover::after,
@@ -817,13 +806,13 @@ a:hover .icon_type span{
   font-size: 30px;
   line-height: 50px;
   z-index: 30;
-  color: rgba(255,255,255,0.4);
+  color: rgba(0,0,0,1.0);
   opacity: 0;
   padding-right: 20px;
   letter-spacing: 2px;
 }
 .single-girls .first_view .overlay_h1{
-  background: #343434;
+  background: #f1f1f1;
   width: 100%;
   height: 50px;
   position: absolute;
@@ -846,12 +835,12 @@ a:hover .icon_type span{
   float:left;
   box-sizing: border-box;
   width:14%;
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid rgba(0,0,0,0.2);
   border-right: none;
   overflow:hidden;
 }
 .single-girls #schedule dl:last-child{
-  border-right:1px solid rgba(255,255,255,0.2);
+  border-right:1px solid rgba(0,0,0,0.2);
 }
 .single-girls #schedule dt,
 .single-girls #schedule dd{
@@ -860,17 +849,19 @@ a:hover .icon_type span{
   text-align:center;
 }
 .single-girls #schedule dt{
-  border-bottom:1px solid rgba(255,255,255,0.2);
+  border-bottom:1px solid rgba(0,0,0,0.2);
 }
 .single-girls #schedule dd{
   line-height:40px;
   min-height:40px;
 }
 .single-girls #schedule dt.Saturday{
-  background:#1b0068;
+  background:#0000cc;
+  color: #fff;
 }
 .single-girls #schedule dt.Sunday{
-  background:#7f0000;
+  background:#cc0000;
+  color: #fff;
 }
 
 
@@ -898,7 +889,7 @@ a:hover .icon_type span{
   text-align: right
 }
 .bx-pager{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   font-size: 70px;
   line-height: 100%;
   font-weight: normal;  
@@ -907,10 +898,10 @@ a:hover .icon_type span{
   font-size: 140px;
 }
 .bx-controls-direction a{
-  color:#e3e3e3;
+  color:#707070;
   display: inline-block;
   padding: 10px 20px;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   font-size: 16px;
   line-height: 100%;
   font-weight: bold;
@@ -918,51 +909,17 @@ a:hover .icon_type span{
   text-decoration: none;
 }
 .bx-controls-direction a:hover{
-  background: rgba(255,255,255,0.3);
+  background: rgba(0,0,0,0.1);
 }
 #secondary{
-  position: fixed;
-  bottom: 0;
-  left: 5px;
-  height: 30px;
-  padding: 7px;
-  background: rgba(0,0,0,0.9);
+
 }
 #secondary:hover{
-  transition : all 0.2s ease;
-  height: 50px;
-  background: rgba(0,0,0,1);
+
 }
 #qtranslate-2 .widget-title{
-  display: none;
 }
-.language-chooser a{
-  display: inline-block;
-  padding:5px 8px;
-  font-size: 13px;
-  line-height: 120%;
-  font-weight: bold;
-  background: rgba(0,0,0,0.3);
-  color: rgba(255,255,255,0.9);
-  text-decoration: none;
-  padding-left: 30px;
-}
-.language-chooser .active a{
-  color: rgba(255,255,255,0.7);
-  opacity: 0.2;  
-}
-.language-chooser a:hover{
-  background-color: #333;
-  opacity: 1;  
-}
-.lang-ja a{
-  background: url(./img/icon-ja.png) no-repeat 5px center;
-  background-size: auto 12px;
-}
-.lang-en a{
-  background: url(./img/icon-en.png) no-repeat 5px center;
-  background-size: auto 12px;
-}
+
 .taiki{
   position: fixed;
   top: 32%;
@@ -981,7 +938,7 @@ a:hover .icon_type span{
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(255,255,255,0.9);
   width: 100%;
   height: 100%;
   z-index: 300;
@@ -1023,7 +980,7 @@ a:hover .icon_type span{
   vertical-align: middle;
 }
 .taiki_pop .taiki_pop_tel_area{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   font-size: 54px;  
   line-height: 120%;
   letter-spacing: 2px;
@@ -1034,21 +991,21 @@ a:hover .icon_type span{
 }
 .taiki_pop_tel_mail{
   transition : all 0.2s ease;
-  color:#ffde00;
+  color:#fff;
   text-align: center;
   font-size: 26px;
   display: block;
   text-decoration: none;
-  background: rgba(0,0,0,0.5);
   padding: 20px 0;
-  background: rgba(100,100,100,0.1);  
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,1);  
+  border: 1px solid rgba(0,0,0,0.4);
   cursor: pointer;
   max-width: 600px;
   margin: 10px auto;
 }
 .taiki_pop_tel_mail:hover{
-  background: rgba(100,100,100,0.3);  
+  background: rgba(255,255,255,1);  
+  border: 1px solid #ff2f51;
   color:#ff2f51;
 }
 .taiki_pop .taiki_pop_tel small{
@@ -1057,8 +1014,8 @@ a:hover .icon_type span{
   font-size: 13px;
 }
 .taiki_pop .taiki_pop_tel .taiki_pop_tel_icon{
-  background: rgba(255,255,255,0.7);
-  color: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.7);
+  color: rgba(255,255,255,0.8);
   font-size: 0.6em;
   display: inline-block;
   padding: 7px 10px;
@@ -1069,8 +1026,8 @@ a:hover .icon_type span{
   font-size: 0.9em;
   line-height: 100%;
   margin-top: 40px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2);
   cursor: pointer;
   display: inline-block;
   padding: 6px;
@@ -1079,7 +1036,7 @@ a:hover .icon_type span{
   vertical-align: middle;
 }
 .taiki_pop_tel_close:hover{
-  background: rgba(255,255,255,0.1);  
+  background: rgba(0,0,0,0.1);  
 }
 
 .shame{
@@ -1100,7 +1057,7 @@ a:hover .icon_type span{
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(255,255,255,0.8);
   width: 100%;
   height: 100%;
   z-index: 300;
@@ -1120,8 +1077,8 @@ a:hover .icon_type span{
   font-size: 0.9em;
   line-height: 100%;
   margin-top: 40px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.2);
   cursor: pointer;
   display: inline-block;
   padding: 6px;
@@ -1130,7 +1087,7 @@ a:hover .icon_type span{
   vertical-align: middle;
 }
 .shame_pop_tel_close:hover{
-  background: rgba(255,255,255,0.1);  
+  background: rgba(0,0,0,0.1);  
 }
 .shame_pop .shame_layer_iframe iframe{
   display: block;
@@ -1145,19 +1102,19 @@ a:hover .icon_type span{
 .schedule table{
   width: 94%;
   margin: 0 auto;
-  border: 1px solid #1f1f1f;
+  border: 1px solid #909090;
   transition : all 0.2s ease;
 }
 .schedule table:hover{
-  border: 1px solid #505050;
-  background: rgba(100,100,100,0.1);
+  border: 1px solid #a0a0a0;
+  background: rgba(0,0,0,0.1);
 }
 .schedule th,
 .schedule td{
   text-align: center;
   vertical-align: middle;
   font-size: 15px;
-  border: 1px dotted #333;
+  border: 1px dotted #909090;
   padding: 10px;
 }
 .schedule td img{
@@ -1193,9 +1150,9 @@ a:hover .icon_type span{
   float: none;
   display: block;
   position: relative;
-  border:1px solid rgba(255,255,255,0.1);
+  border:1px solid rgba(0,0,0,0.1);
   box-sizing: border-box;
-  background: #1f1f1f;
+  background: #fff;
 }
 .schedule .cast_todayschedule dl{
   opacity: 1;
@@ -1227,7 +1184,12 @@ a:hover .icon_type span{
 .page-template-default .content{
   /*  max-width: 1000px; */
 }
-
+.page-template-default p{
+  margin: 1em 0;
+}
+.page-template-page-access p{
+  margin: 0;
+}
 
 /* CONTACT FORM7 */
 div.wpcf7{
@@ -1311,6 +1273,7 @@ div.wpcf7{
 }
 .layout_2column .layout_2column_main{
   width: 75%;
+  padding-right: 26px;
 }
 .layout_2column .layout_2column_main_top{
   width: 50%;
@@ -1323,7 +1286,7 @@ div.wpcf7{
 .archive_ul li a{
   display: block;
   margin-bottom: 30px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
   box-sizing: border-box;
   padding: 10px;
   text-decoration: none;
@@ -1335,17 +1298,17 @@ div.wpcf7{
   box-sizing: border-box;
 }
 .archive_ul li a:hover{
-  background: rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.1);
 }
 
 .cast_history{
   display: block;
   line-height: 140%;
   text-decoration: none;
-  color:#e3e3e3;
+  color:#fff;
   box-sizing: border-box;
   padding: 10px;
-  background: rgba(140,140,140,0.2);
+  background: rgba(0,0,0,1);
   text-align: center;
 }
 .cast_history small{
@@ -1356,7 +1319,7 @@ div.wpcf7{
   padding-bottom: 5px;
 }
 .cast_history:hover{
-  background: rgba(140,140,140,0.1);
+  background: rgba(0,0,0,0.9);
 }
 
 .webkit-p p{
@@ -1367,8 +1330,8 @@ div.wpcf7{
   display: block;
   margin: 15px 0;
   padding:　15px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  color:#e3e3e3;  
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  color:#333;  
 }
 .style_ranking .top_ranking:nth-child(1) {
   margin-top: 0;
@@ -1422,7 +1385,7 @@ div.wpcf7{
   padding-left: 50px;
 }
 .style_ranking .top_ranking dt:before{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   font-size: 54px;
   width: 50px;
   text-align: center;
@@ -1440,7 +1403,7 @@ div.wpcf7{
 }
 .style_ranking .top_ranking:nth-child(2) dt:before{
   content: '2';
-  color: #d3d3d3;
+  color: #666;
 }
 .style_ranking .top_ranking:nth-child(3) dt:before{
   content: '3';
@@ -1448,31 +1411,33 @@ div.wpcf7{
 }
 .style_ranking .top_ranking:nth-child(4) dt:before{
   content: '4';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
 }
 .style_ranking .top_ranking:nth-child(5) dt:before{
   content: '5';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
 }
 .style_ranking .top_ranking:nth-child(6) dt:before{
   content: '6';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
 }
 .style_ranking .top_ranking:nth-child(7) dt:before{
   content: '7';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
 }
 .style_ranking .top_ranking:nth-child(8) dt:before{
   content: '8';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
 }
 .style_ranking .top_ranking:nth-child(9) dt:before{
   content: '9';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
 }
 .style_ranking .top_ranking:nth-child(10) dt:before{
   content: '10';
-  color: rgba(255,255,255,0.2);
+  color: rgba(0,0,0,0.2);
+  font-size: 44px;
+  letter-spacing: -6px;
 }
 .icon_taiki{
   display: inline-block;
@@ -1517,28 +1482,29 @@ div.wpcf7{
 
 .shimeiryo{
   font-size: 12px;
-  color:#ff2f51;
+  color:#333;
   font-weight: bold;
 }
 .cast_todayschedule .shimeiryo{
   margin-top: 5px;
 }
 .shimeiryo span{
-  background: #ff2f51;
+  background: #333;
   padding: 0 5px;
   display: inline-block;
   line-height: 18px;
-  color:#000;
+  color:#f1f1f1;
   font-weight: bold;
 }
 .shimeiryo strong{
   display: inline-block;
   padding: 0 4px;
-  line-height: 18px;
+  line-height: 17px;
   font-weight: normal;
   font-size: 16px;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  background: rgba(0,0,0,0.8);
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
+  background: rgba(0,0,0,0.1);
+  color:#333;
 }
 .shimeiryo strong small{
   font-family:"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif;
@@ -1561,7 +1527,7 @@ div.wpcf7{
 }
 
 .int{
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   font-size: 2.1em;  
 }
 .sidebar{
@@ -1588,22 +1554,26 @@ div.wpcf7{
   width: 1%;
   padding-right: 20px;
 }
-.sidebar .access_info dt img{
-  max-width: 230px;
+.sidebar .access_info img{
+  max-width: 530px;
+  width: 100%;
+}
+.sidebar .access_info img.logo{
+  width: 100%;
 }
 .sidebar .access_info dd{
 }
-.sidebar .access_info dd .map{
+.sidebar .access_info .map{
   width: 100%;
   height: 400px;
-  border: 15px solid rgba(255,255,255,0.2);
+  border: 15px solid rgba(90,90,90,0.1);
   box-sizing: border-box;
 }
 .sidebar .access_info .mail img{
   vertical-align: middle;
   margin-right: 5px;
 }
-.page-id-18056 .sidebar .access_info dd .map{
+.page-id-18056 .sidebar .access_info .map{
   height: 700px;
 }
 
@@ -1635,11 +1605,12 @@ div.wpcf7{
 .news{
   font-size: 1.3em;
 }
+
 .news li a{
   display: block;
   padding: 10px 0;
   border-bottom:1px solid rgba(255,255,255,0.1);
-  color:#e3e3e3;
+  color:#333;
 }
 .news li a:hover{
   background: rgba(140,140,140,0.1);    
@@ -1650,7 +1621,7 @@ div.wpcf7{
 .news small{
   font-size: 0.7em;
   margin-right: 10px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(0,0,0,0.3);
   font-weight: bold;
 }
 
@@ -1682,7 +1653,7 @@ div.wpcf7{
 /* Side Style */
 .layout_2column .layout_2column_sub .side_style .c_tt{
   text-align: left;
-  font-size: 37px;
+  font-size: 27px;
   padding-bottom: 0;
   margin: 40px 0 10px;
 }
@@ -1698,6 +1669,10 @@ div.wpcf7{
 }
 .layout_2column .layout_2column_sub .side_style .news small{
   font-size: 0.8em;
+}
+.layout_2column_child.layout_2column_sub{
+  border-left: 1px solid #e0e0e0;
+  padding-left: 20px;
 }
 
 
@@ -1725,8 +1700,8 @@ div.wpcf7{
   padding: 5px 0 10px;
 }
 .shinjin_discount span{
- font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 2.1em; 
+ font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
+ font-size: 2.1em; 
 }
 .page-id-18064 .top_ranking{
   margin-bottom: 30px;
@@ -1735,14 +1710,13 @@ div.wpcf7{
 
 .new_face_head.guide_reserve h2{
   font-size: 2em;
-  color: #fffc00;
+  color: #293b75;
   line-height: 1.3em;
 }
 
 .kitamama{
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center
 }
 .kitamama img{
   max-width: 100%;
@@ -1757,7 +1731,7 @@ dl.qanda{
   margin:0 auto;
 }
 dl.qanda dt{
-  color:#e270bd;
+  color:#3e90c6;
   padding:10px 0 10px 40px;
   line-height: 140%;
   font-weight:bold;
@@ -1814,7 +1788,7 @@ dl.qanda dd{
 
 
 .top_foot_guide{
-  background: #191919; 
+  background: #ddd; 
   display: table;
   width: 100%;
   margin: 30px 0 160px;
@@ -1825,20 +1799,20 @@ dl.qanda dd{
 }
 .top_foot_guide a{
   transition: all 0.2s ease;
-  color: #f1f1f1;
+  color: #333;
   text-align: center;
   font-size: 18px;
   display: block;
   text-decoration: none;
   padding: 15px 0;
-  background: rgba(100,100,100,0.3);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #f1f1f1;
+  border: 1px solid rgba(255,255,255,1);
   cursor: pointer;
   max-width: 600px;
   margin: 10px;
 }
 .top_foot_guide a:hover{
-  background: rgba(100,100,100,0.5);
+  background: #fff;
 }
 
 #youtube{
@@ -1871,12 +1845,12 @@ dl.qanda dd{
   line-height:1em;
   padding:1em 1.2em;
   color:#aaa;
-  background:rgba(0,0,0,0.2);
-  border:1px solid rgba(0,0,0,0.3);
+  background:rgba(0,0,0,0.1);
+  border:1px solid rgba(0,0,0,0.2);
   box-shadow:-1px -1px 0px 0px rgba(255,255,255,0.1) inset ,1px 1px 0px 0px rgba(255,255,255,0.1) inset;
 }
 .wp-pagenavi span.current{
-  background:#aaa;
+  background:#fff;
   color:#333;
 }
 .wp-pagenavi a:hover{
@@ -1896,7 +1870,7 @@ dl.qanda dd{
 }
 .pay li img{
   vertical-align: bottom;
-  border: 1px solid #000;
+  border: 1px solid #ddd;
 }
 
 
@@ -1908,12 +1882,13 @@ dl.qanda dd{
 
 .shinjinwaribikityuu{
   text-align: center;
-  color: #6ecd35;
+  color: #fff;
   font-size: 1.3em;
   padding: 0.8em 0;
   border: 1px solid #6ecd35;
   margin: 2.5em 0 2.5em;
   font-weight: bold;
+  background: #6ecd35;
 }
 
 .page-id-18064 .style_newface .top_ranking .name{
@@ -1937,7 +1912,7 @@ dl.qanda dd{
 .single_girls_newface .shinjinwaribikityuu{
   font-size: 1.8em;
   background: #6ecd35;
-  color: #000;
+  color: #fff;
   margin-bottom: 1.5em;
 }
 .single_girls_newface .shinjin_discount{
@@ -1965,7 +1940,7 @@ dl.qanda dd{
   }  
   .global_navi_pc .global_navi_language_ja li a img{
     width: 12px;
-  }  
+  }    
 }
 
 
@@ -2025,7 +2000,6 @@ dl.qanda dd{
   .global_navi_pc .global_navi_language_ja li a{
     font-size: 11px;
   }
-
 }
 
 
@@ -2063,13 +2037,27 @@ dl.qanda dd{
 640px
 -------------------------------------------- */
 @media screen and (max-width: 640px){
+  body.admin-bar .global_navi_sp{
+    top: 46px;
+  }
+  .global_navi_pc li,
+  .global_navi_pc ul{
+    display: block;
+  }
+  .global_navi_pc ul li a{
+    color: #fff;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .global_navi_sp{
+    max-width: 500px;
+  }
   .my_admin_guide{
     display: none;
   }
   .admin-bar .sp_menu,
   .admin-bar .sp_menu_close{
-    top: 0;
-    /*top: 46px;*/
+    top: 46px;
   }
   .admin-bar .global_navi{
     padding-top: 0 !important; 
@@ -2153,6 +2141,13 @@ dl.qanda dd{
   .layout_2column .layout_2column_child{
     padding: 0;
     padding-bottom: 50px;
+  }
+  .sp_menu,
+  .sp_menu_close{  
+    display: block;
+  }
+  .layout_2column_child.layout_2column_sub{
+    border-left: none;
   }
 }
 
@@ -2293,7 +2288,7 @@ MOBILE  425px
   }
   .schedule table:hover{
     border: 8px solid #2e2e2e;
-    background: #1f1f1f;
+    background: #f1f1f1;
   }
   .global_navi ul li a{
     height: 50px;
@@ -2486,7 +2481,7 @@ MOBILE  425px
   }
 
   .c_tt{
-    font-size: 56px;
+    font-size: 49px;
   }
 
   .sidebar .access_info{
@@ -2515,7 +2510,7 @@ MOBILE  425px
   }
   .archive_ul li .attachment-full{
     width: 100%;
-  }  
+  }
 
 }
 
