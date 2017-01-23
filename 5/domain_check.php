@@ -8,10 +8,10 @@ function domainCom(){
   $data = $whois->query($query);
   $check_word = "No match for";
   if(strpos($data, $check_word) !== false){
-    echo $query."は新規取得可能です";
+    echo "<tr><th>" .$query."</th><td>申し込み可能</td></tr>";
   }
   if(strpos($data, $check_word) === false){
-    echo $query."は取得できません";
+    echo "<tr><th>" .$query."</th><td>既に取得されています</td></tr>";
   }
 }
 
@@ -22,10 +22,10 @@ function domainNet(){
   $data = $whois->query($query);
   $check_word = "No match for";
   if(strpos($data, $check_word) !== false){
-    echo $query."は新規取得可能です";
+    echo "<tr><th>" .$query."</th><td>申し込み可能</td></tr>";
   }
   if(strpos($data, $check_word) === false){
-    echo $query."は取得できません";
+    echo "<tr><th>" .$query."</th><td>既に取得されています</td></tr>";
   }
 //  echo $data;
 }
@@ -37,12 +37,57 @@ function domainBiz(){
   $data = $whois->query($query);
   $check_word = "Not found";
   if(strpos($data, $check_word) !== false){
-    echo $query."は新規取得可能です";
+    echo "<tr><th>" .$query."</th><td>申し込み可能</td></tr>";
   }
   if(strpos($data, $check_word) === false){
-    echo $query."は取得できません";
+    echo "<tr><th>" .$query."</th><td>既に取得されています</td></tr>";
   }
-  echo $data;
+}
+
+
+// .info
+function domainInfo(){
+  $query  = $_POST['name'].".info";
+  $whois = new Net_Whois;
+  $data = $whois->query($query);
+  $check_word = "NOT FOUND";
+  if(strpos($data, $check_word) !== false){
+    echo "<tr><th>" .$query."</th><td>申し込み可能</td></tr>";
+  }
+  if(strpos($data, $check_word) === false){
+    echo "<tr><th>" .$query."</th><td>既に取得されています</td></tr>";
+  }
+}
+
+
+// .club
+function domainClub(){
+  $query  = $_POST['name'].".club";
+  $whois = new Net_Whois;
+  $data = $whois->query($query);
+  $check_word = "No Domain";
+  if(strpos($data, $check_word) !== false){
+    echo "<tr><th>" .$query."</th><td>申し込み可能</td></tr>";
+  }
+  if(strpos($data, $check_word) === false){
+    echo "<tr><th>" .$query."</th><td>既に取得されています</td></tr>";
+  }
+}
+
+
+// .top
+function domainTop(){
+  $query  = $_POST['name'].".top";
+  $whois = new Net_Whois;
+  $data = $whois->query($query);
+  $check_word = "does not exist";
+  if(strpos($data, $check_word) !== false){
+    echo "<tr><th>" .$query."</th><td>申し込み可能</td></tr>";
+  }
+  if(strpos($data, $check_word) === false){
+    echo "<tr><th>" .$query."</th><td>既に取得されています</td></tr>";
+  }
+//  echo $data;
 }
 
 
@@ -50,6 +95,9 @@ function domainBiz(){
 domainCom();
 domainNet();
 domainBiz();
+domainInfo();
+domainClub();
+domainTop();
 
 
 ?>

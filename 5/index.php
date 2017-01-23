@@ -21,7 +21,7 @@
 <h1>FWR<small>○○○○○○○○○</small></h1>
 <h2>月額/￥<span class="price">9,500</span><small>（税込）</small></h2>
 <h2>初期費用/￥<span class="price">0</span></h2>
-<h2>ドメイン、サーバー料金、すべてコミコミ！</h2>
+<h2>ドメイン、サーバー、すべてコミコミ！</h2>
 
 
 <!--form action="domain_check.php" method="post">
@@ -29,12 +29,11 @@
   <input type="submit" value="送信">
 </form-->
 
-
+<div class="domain_check">
+<h2>ドメインを検索する！</h2>
 <input type="text" value="" class="domain_name" placeholder="例：fmr">
-<div class="submit">
-  送信
+<p class="submit">検 索</p>
 </div>
-
 
 <script>
 $(function(){
@@ -42,7 +41,7 @@ $(function(){
     $(".domain_name").removeAttr('placeholder');
   });
   $(".submit").on("click",function(){
-    $(".preloader").removeClass("start");
+    $(".preloader").addClass("start");
 //     $i = "greengreengreen"
     $i = $(".domain_name").val();
     $.post(
@@ -53,18 +52,41 @@ $(function(){
       function( data ) {
         $( "#domain" ).html( data );
         console.log("comp");
-        $(".preloader").addClass("comp");
+        $(".preloader").removeClass("start");
       });
   });
 })
 </script>
 
-
-<div id="domain">
+<div class="domain_base">
 <img src="img/preloader.gif" class="preloader">
-
+<table id="domain">
+  <tr>
+    <th>.com</th>
+    <td>　</td>
+  </tr>
+  <tr>
+    <th>.net</th>
+    <td>　</td>
+  </tr>
+  <tr>
+    <th>.biz</th>
+    <td>　</td>
+  </tr>
+  <tr>
+    <th>.info</th>
+    <td>　</td>
+  </tr>
+  <tr>
+    <th>.club</th>
+    <td>　</td>
+  </tr>
+  <tr>
+    <th>.top</th>
+    <td>　</td>
+  </tr>
+</table>
 </div>
-
 
 
 
