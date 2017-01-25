@@ -505,7 +505,7 @@ add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return 
 add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
  
 function my_custom_dashboard_widgets() {
-  $file_name = "http://test-gira.xyz/analytics/analytics_gr.php";
+  $file_name = site_url()."/analytics/analytics.php";
   $ret_str = file_get_contents( $file_name );
 	global $wp_meta_boxes; 
 	wp_add_dashboard_widget('custom_analytics_widget', 'アクセス解析', 'dashboard_text');
@@ -530,7 +530,7 @@ function dashboard_text() {
 	<li><a href="edit.php?post_type=blog"><span>ブログ</span></a></li>
 	</ul>';
 
-	echo '<iframe class="analytics" src="/analytics/analytics_nl.php"></iframe>';
+	echo '<iframe class="analytics" src="'.site_url().'/analytics/analytics.php"></iframe>';
 
 /*
 	if ($current_user->ID == "4" ) {
@@ -610,9 +610,9 @@ function custom_login() { ?>
 			color: #fff !important;			
 		}
 		.login h1 a{
-			width: 100% !important;
-			background: url(/wp-content/themes/giragira/img/admin_logo_login.png) no-repeat center center !important;
-			background-size: cover;
+/*			width: 100% !important;
+			background: url(/wp-content/themes/hoge/img/admin_logo_login.png) no-repeat center center !important;
+			background-size: cover; */
 		}
 		.login #login_error, .login .message{
 			border: none !important;
@@ -736,25 +736,6 @@ add_action('admin_menu', 'ranking_page');
 function ranking_menu() {include 'admin_ranking.php';}
 
 
-// 管理画面にオリジナルページ追加 ＞　G
-function ranking_page_g() {
-	add_menu_page('ランキングG', 'ランキングG', 1, 'ranking_g', 'ranking_menu_g', '', 5);
-}
-add_action('admin_menu', 'ranking_page_g');
-
-// 管理画面にオリジナルページ追加 リンク先 ＞　G
-function ranking_menu_g() {include 'admin_ranking_g.php';}
-
-
-// 管理画面にオリジナルページ追加 ＞　N
-function ranking_page_n() {
-	add_menu_page('ランキングN', 'ランキングN', 1, 'ranking_n', 'ranking_menu_n', '', 5);
-}
-add_action('admin_menu', 'ranking_page_n');
-
-// 管理画面にオリジナルページ追加 リンク先 ＞　N
-function ranking_menu_n() {include 'admin_ranking_n.php';}
-
 
 // 使用しないメニューを非表示にする
 function remove_admin_menus() {
@@ -764,7 +745,7 @@ function remove_admin_menus() {
 		remove_menu_page('wpcf7');
     global $menu;
     // unsetで非表示にするメニューを指定
-    unset($menu[20]);       // 固定ページ
+    //unset($menu[20]);       // 固定ページ
     unset($menu[25]);       // コメント
     unset($menu[60]);       // 外観
     unset($menu[65]);       // プラグイン
@@ -808,3 +789,19 @@ function add_user_role_class( $admin_body_class ) {
 }
 add_filter( 'admin_body_class', 'add_user_role_class' );
 
+
+// アーカイブタイトルのアレンジ
+add_filter( 'get_the_archive_title', function ($title) {
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_month() ) {
+		$date = single_month_title('',false);
+		$pos  = strpos($date, '月');
+		$title = mb_substr($date, $pos+1).'年'.mb_substr($date, 0, $pos+1);
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	} 
+	return $title;
+});

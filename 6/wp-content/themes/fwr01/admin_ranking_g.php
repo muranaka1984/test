@@ -87,7 +87,7 @@ $args = array(/* 配列に複数の引数を追加 */
   'post_type' => 'girls', /* 投稿タイプを指定 */
   'posts_per_page' => -1, /* 表示するページ数 */
 //  'order' => 'ASC',
-//  'meta_key'=>'ランキング【ギラギラナイト】',
+//  'meta_key'=>'ランキング',
 //  'orderby'=>'meta_value',
 ); ?>
 <?php query_posts( $args ); ?>
@@ -101,16 +101,16 @@ $args = array(/* 配列に複数の引数を追加 */
   $nid = 'g_rank'.get_the_ID();
   $input_data = $_POST[$nid];
   if(isset($_POST['update'])) {
-    update_post_meta($cid, 'ランキング【ギラギラナイト】', $input_data);
+    update_post_meta($cid, 'ランキング', $input_data);
   }
   else if(isset($_POST['reset'])) {
     update_post_meta($cid, 'ランキング【ギラギラナイト】', '');
   }
 ?>
-<li class="ranking_list sort_<?php echo post_custom('ランキング【ギラギラナイト】');?>" <?php if(post_custom('ランキング【ギラギラナイト】')): ?>id="<?php echo post_custom('ランキング【ギラギラナイト】');?>"<? else: ?>id="99"<? endif; ?>>
+<li class="ranking_list sort_<?php echo post_custom('ランキング');?>" <?php if(post_custom('ランキング')): ?>id="<?php echo post_custom('ランキング');?>"<? else: ?>id="99"<? endif; ?>>
 <p class="rank"><span class="number">
-<?php if(post_custom('ランキング【ギラギラナイト】')): ?>
-  <?php echo post_custom('ランキング【ギラギラナイト】');?> 
+<?php if(post_custom('ランキング')): ?>
+  <?php echo post_custom('ランキング');?> 
 <? else: ?>
 　
 <? endif; ?>
@@ -121,7 +121,7 @@ $args = array(/* 配列に複数の引数を追加 */
 <?php echo get_the_title(); ?>
 </p>
 
-<p class="input"><input type="text" name="g_rank<?php echo get_the_ID(); ?>" class="g_rank<?php echo get_the_ID(); ?>" size="2" style="ime-mode:disabled;" value="<?php echo post_custom('ランキング【ギラギラナイト】'); ?>"><small>位</small></p>
+<p class="input"><input type="text" name="g_rank<?php echo get_the_ID(); ?>" class="g_rank<?php echo get_the_ID(); ?>" size="2" style="ime-mode:disabled;" value="<?php echo post_custom('ランキング'); ?>"><small>位</small></p>
 </li>
 <?php if($loopcounter%5==0) { echo ('<!--br class="cb"-->');} ?>
 <?php endwhile; endif; ?>

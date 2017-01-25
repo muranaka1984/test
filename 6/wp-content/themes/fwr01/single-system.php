@@ -1,24 +1,12 @@
-<?php
-/**
- * The template for displaying all single posts and attachments
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 
 <div class="wrapper">
 	<div class="content">
 
 	<h1 class="c_tt">
-    <?php if(qtranxf_getLanguage() == 'ja'):?>
-			SYSTEM
-    <?php elseif(qtranxf_getLanguage() == 'en'):?>
-			BUDGET
-		<?php endif; ?>
-		<small>- システム -</small></h1>
+		SYSTEM
+		<small>- システム -</small>
+	</h1>
 
 	<div class="layout_2column">
 
@@ -26,11 +14,7 @@ get_header(); ?>
 			<?php if(have_posts()): while(have_posts()): the_post(); ?>
 
 				<h2 class="sub_tt">
-					<?php if(qtranxf_getLanguage() == 'ja'):?>
 					コース
-					<?php elseif(qtranxf_getLanguage() == 'en'):?>
-					Course
-					<?php endif; ?>
 				</h2><br>
 
 				<table>
@@ -170,7 +154,6 @@ get_header(); ?>
 				</table>
 
 
-<?php if(qtranxf_getLanguage() == 'ja'):?>
 
 				<?php if(post_custom('延長時間')): ?>
 					<h2 class="sub_tt">延長</h2><br>
@@ -311,7 +294,6 @@ get_header(); ?>
 						</tr>
 					<?php endif; ?>
 
-<?php endif; ?>
 
 				</table>
 

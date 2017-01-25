@@ -92,7 +92,7 @@ endif;
 <?php wp_reset_postdata(); wp_reset_query(); ?>
 
 <div align="right" class="mt20">
-	<a href="/girls/" class="btn1">ガールズ一覧へ</a>
+	<a href="<?php echo site_url(); ?>/girls/" class="btn1">ガールズ一覧へ</a>
 </div>
 <br class="cb"><div class="mt40"><br></div>
 
@@ -164,7 +164,7 @@ echo'</dl></a>';
 </div>
 <?php wp_reset_postdata(); wp_reset_query(); ?>
 <div align="right" class="mt20">
-	<a href="/ranking/" class="btn1">ランキング一覧</a>
+	<a href="<?php echo site_url(); ?>/ranking/" class="btn1">ランキング一覧</a>
 </div>
 
 
@@ -186,7 +186,7 @@ echo'</dl></a>';
 		<?php endwhile; ?>
 	</ul>
 	<div align="right" class="mt20">
-		<a href="/giragiranight_news/" class="btn1">
+		<a href="<?php echo site_url(); ?>/news/" class="btn1">
 			お知らせ一覧
 		</a>
 	</div>
@@ -218,7 +218,7 @@ echo'</dl></a>';
 		<?php wp_reset_postdata(); wp_reset_query(); ?>
 	</ul>
 	<div align="right" class="mt20">
-		<a href="/event/" class="btn1">イベント・割引一覧</a>
+		<a href="<?php echo site_url(); ?>/event/" class="btn1">イベント・割引一覧</a>
 	</div>
 </div>
 
@@ -246,7 +246,7 @@ echo'</dl></a>';
 		<?php endwhile; ?>
 	</ul>
 	<div align="right" class="mt20">
-		<a href="/blog/" class="btn1">ブログ一覧</a>
+		<a href="<?php echo site_url(); ?>/blog/" class="btn1">ブログ一覧</a>
 	</div>
 </div>
 <?php endif; ?>

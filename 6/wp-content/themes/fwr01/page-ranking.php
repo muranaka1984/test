@@ -8,7 +8,7 @@ get_header(); ?>
 <div class="wrapper">
 	<div class="content">
 
-<h1 class="c_tt">RANKING<small>- 人気ランキング -</small></h1>
+<h1 class="c_tt">人気ランキング</h1>
 
 	<div class="layout_2column">
 
@@ -17,16 +17,16 @@ get_header(); ?>
 <?php
 $args = array(/* 配列に複数の引数を追加 */
 	'post_type' => 'girls', /* 投稿タイプを指定 */
-	'posts_per_page' => 10, /* 表示するページ数 */
+	'posts_per_page' => 5, /* 表示するページ数 */
 	'order' => 'ASC',
-	'meta_key'=>'ランキング【ギラギラナイト】',
+	'meta_key'=>'ランキング',
 	'orderby'=>'meta_value',
 ); ?>
 <?php query_posts( $args ); ?>
 <div class="style_ranking">
 <?php if (have_posts()): while(have_posts()): the_post(); $loopcounter++; ?>
 
-<?php $ccc = get_post_meta($post->ID, 'ランキング【ギラギラナイト】', true);?>
+<?php $ccc = get_post_meta($post->ID, 'ランキング', true);?>
 
 <?php if(empty($ccc)):?>
 <?php else:?>
@@ -39,16 +39,17 @@ for($i=0; $i<1; $i++){ // 1日分の予定を表示
 	$time = strtotime('+' . $i . ' days');
 	$key = 'date-' . date('m-d', $time);
 	echo '<dt><img src="';
-	$image = wp_get_attachment_image_src(get_post_meta($post->ID, 'ギラギラナイト写真1', true), 'thumbnail');
-	echo $image[0];
-	echo '" alt="すすきの ソープランド嬢 ';
+	if(post_custom('写真1')){
+		$image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'medium');
+		echo $image[0];
+	} else {
+		echo bloginfo('template_directory')."/img/0.png";
+	};
+	echo '" alt="';
 	echo $title = get_the_title();
 	echo 'の写真"></dt><dd>';
  	if(get_post_meta($post->ID,'待機中',true) == '待機中'){
 		echo ('<span class="icon_taiki">待機中！</span>');
-	}
-	if (post_custom('新人割引')){
-		echo ('<span class="icon_new">新人割引中！</span>');
 	}
 	echo '<p class="catch_copy">';
 	echo post_custom('キャッチコピー');

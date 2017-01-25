@@ -1,32 +1,16 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
-
-get_header(); ?>
+<?php get_header(); ?>
 
 <script src="<?php bloginfo('template_directory'); ?>/js/single-cast.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/jquery.bxslider.min.js"></script>
 
 <?php if(have_posts()):while(have_posts()):the_post(); ?>
 
-<?php if(post_custom('ギラギラナイト写真メイン')): ?>
+<?php if(post_custom('写真メイン')): ?>
 <div class="first_view">
 	<h1 class="c_tt">
 		<?php echo $title = get_the_title(); ?>
 	</h1>
-	<?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真メイン', true),'full'); ?>
+	<?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真メイン', true),'full'); ?>
 	<p class="overlay"></p>
 	<p class="overlay_h1"></p>
 </div>
@@ -44,7 +28,6 @@ get_header(); ?>
 <div class="wrapper">
 	<div class="content">
 
-<?php if(qtranxf_getLanguage() == 'ja'):?>
   <div align="right">
 <?php
 $Tokuchou = get_post_meta($post->ID,'タイプ');
@@ -88,24 +71,23 @@ endif;
 echo'</div>';
 ?>
 </div>
-<?php endif; ?>
 
 
 <ul class="bxslider">
-<?php if(post_custom('ギラギラナイト写真1')): ?>
-	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真1', true),'large'); ?></li>
+<?php if(post_custom('写真1')): ?>
+	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真1', true),'large'); ?></li>
 <?php endif; ?>
-<?php if(post_custom('ギラギラナイト写真2')): ?>
-	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真2', true),'large'); ?></li>
+<?php if(post_custom('写真2')): ?>
+	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真2', true),'large'); ?></li>
 <?php endif; ?>
-<?php if(post_custom('ギラギラナイト写真3')): ?>
-	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真3', true),'large'); ?></li>
+<?php if(post_custom('写真3')): ?>
+	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真3', true),'large'); ?></li>
 <?php endif; ?>
-<?php if(post_custom('ギラギラナイト写真4')): ?>
-	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真4', true),'large'); ?></li>
+<?php if(post_custom('写真4')): ?>
+	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真4', true),'large'); ?></li>
 <?php endif; ?>
-<?php if(post_custom('ギラギラナイト写真5')): ?>
-	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真5', true),'large'); ?></li>
+<?php if(post_custom('写真5')): ?>
+	<li><?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真5', true),'large'); ?></li>
 <?php endif; ?>
 </ul>
 
@@ -138,7 +120,6 @@ echo'</div>';
 </script>
 
 
-<?php if(qtranxf_getLanguage() == 'ja'):?>
 <div id="profile">
 	<h2>プロフィール</h2>
 	<table>
@@ -253,7 +234,7 @@ echo'</div>';
 
 	</table>
 </div><!--#profile-->
-<?php elseif(qtranxf_getLanguage() == 'en'):?>
+
 <div id="profile">
 	<h2>Profile</h2>
 	<table>
@@ -275,12 +256,12 @@ echo'</div>';
 			</tr>
 	</table>
 </div><!--#profile-->			
-<?php endif; ?>
+
 
 
 
 <div id="schedule">
-<?php if(qtranxf_getLanguage() == 'ja'):?>
+
 	<h2>週間スケジュール</h2>	
 	<?php
 		for($i=0; $i<7; $i++){ // 7日分の予定を表示
@@ -297,72 +278,19 @@ echo'</div>';
 			echo '<dd>'. get_post_meta($post->ID, $key, true) .'</dd></dl>';
 		}
 	?>
-<?php elseif(qtranxf_getLanguage() == 'en'):?>
-	<h2>Schedule</h2>	
-	<?php
-		for($i=0; $i<7; $i++){ // 7日分の予定を表示
-			$time = strtotime('+' . $i . ' days');
-			$weekday = array( 'Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat' );
-			$key = 'date-' . date('m-d', $time);
-			echo '<dl>';
-			echo '<dt class="';
-			echo date('l', $time);
-			echo '">';
-			echo date('n/j', $time);
-			echo '（'.$weekday[date('w',$time)] .')';
-			echo '</dt>';
-			echo '<dd>'. get_post_meta($post->ID, $key, true) .'</dd></dl>';
-		}
-	?>
-<?php endif; ?>
+
 </div>
-
-
-<?php if(post_custom('新人割引50分')): ?>
-<?php if(qtranxf_getLanguage() == 'ja'):?>
-<div class="single_girls_newface">
-<h2 class="shinjinwaribikityuu">新人割引中！！</h2>
-<?php 
-echo'<div class="shinjin_discount">通常50分コース ￥16,000 → 総額￥<span>';
-$ns5 = post_custom('新人割引50分');
-$nsn5 = number_format($ns5);
-echo $nsn5;
-echo'</span>';
-echo'</div>';
-
-echo'<div class="shinjin_discount">通常70分コース ￥22,000 → 総額￥<span>';
-$ns7 = post_custom('新人割引70分');
-$nsn7 = number_format($ns7);
-echo $nsn7;
-echo'</span>';
-echo'</div>';
-
-echo'<div class="shinjin_discount">通常90分コース ￥28,000 → 総額￥<span>';
-$ns9 = post_custom('新人割引90分');
-$nsn9 = number_format($ns9);
-echo $nsn9;
-echo'</span>';
-echo'</div>';
-?>
-</div>
-<?php endif; ?>
-<?php endif; ?>
 
 
 <br class="cb">
 
-<?php if(qtranxf_getLanguage() == 'ja'):?>
-<p class="taiki_open taiki_pop_tel_mail">電話で指名予約する</p>
-<br>
-<a href="/reservation/" class="taiki_pop_tel_mail">聴覚障害がある方はこちらからご予約可能です</a>
-<?php endif; ?>
 
 
 <?php if(get_post_meta($post->ID,'待機中',true) == '待機中'): ?>
 <div class="taiki taiki_open"><img src="<?php bloginfo('template_directory'); ?>/img/taiki.png" alt="待機中です！"></div>
 <?php endif; ?>
 
-<?php if(post_custom('ギラギラナイト／写メURL')): ?>
+<?php if(post_custom('写メURL')): ?>
 <div class="shame shame_open"><img src="<?php bloginfo('template_directory'); ?>/img/shame.png" alt="写メ"></div>
 <?php endif; ?>
 
@@ -374,62 +302,24 @@ echo'</div>';
 
 
 
-<div class="taiki_pop taiki_close">
-  <dl class="taiki_pop_tel">
-    <dt>
-      <?php if(post_custom('ギラギラナイト写真1')): ?>
-      <p class="photo"><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'ギラギラナイト写真1', true),'medium'); ?></p>
-      <?php endif; ?>
-      <p class="txt"><small><?php echo $title = get_the_title(); ?></small>
-      ご指名予約</p>
-    </dt>
-    <dd>
-      <p>ご指名予約はお電話から受け付けております。</p>
-      <p class="taiki_pop_tel_area"><span class="taiki_pop_tel_icon">TEL</span><a href="tel:">03-1234-4321</a></p>
-      <small>受付時間／9:00〜24:00</small>
-      <!--a href="/reserved_g/" class="taiki_pop_tel_mail">メールからのご指名予約はこちら</a-->
-      <div class="taiki_pop_tel_close"><img src="<?php bloginfo('template_directory'); ?>/img/icon_menu_close_trans.png" height="20"> 閉じる
-      </div>
-    </dd>
-  </dl>
-</div>
-
 <div class="content">
 <div><br></div>
 <div><br></div>
 <ul class="top_foot_guide">
-  <li><a href="/girls/">
-  <?php if(qtranxf_getLanguage() == 'ja'):?>
+  <li><a href="<?php echo site_url(); ?>/girls/">
     ガールズ一覧
-  <?php elseif(qtranxf_getLanguage() == 'en'):?>
-    Girls List
-  <?php endif; ?>
   </a></li>
-  <li><a href="/rannking/">
-  <?php if(qtranxf_getLanguage() == 'ja'):?>
+  <li><a href="<?php echo site_url(); ?>/rannking/">
     ランキング
-  <?php elseif(qtranxf_getLanguage() == 'en'):?>
-    Girls Rank
-  <?php endif; ?>
   </a></li>
 </ul>
 </div>
-
-<?php if(post_custom('ギラギラナイト／写メURL')): ?>
-<div class="shame_pop shame_close">
-	<div class="shame_layer_iframe">
-		<iframe src="<?php echo post_custom('ギラギラナイト／写メURL'); ?>" frameborder="0" id="tgt">この部分はiframe対応のブラウザで見てください。</iframe>
-	  <div class="shame_pop_tel_close"><img src="<?php bloginfo('template_directory'); ?>/img/icon_menu_close_trans.png" height="20"> 閉じる
-	  </div>		
-	</div>
-</div>
-<?php endif; ?>
 
 
 <script>
 $(function(){
   // shame
-	var url = '<?php echo post_custom('ギラギラナイト／写メURL'); ?>';
+	var url = '<?php echo post_custom('写メURL'); ?>';
   $(".shame_open").click(function(){
   	$('#tgt').attr({'src':url});
     TweenMax.to('.shame_pop', 0.4, {
@@ -454,7 +344,7 @@ $(function(){
 
   // reserved
   $.cookie( "reserved" , "<?php echo $title = get_the_title(); ?>" , { expires: 1 , path: '/' });
-  $.cookie( "cast_photo" , "<?php $image = wp_get_attachment_image_src(get_post_meta($post->ID, 'ギラギラナイト写真1', true), 'medium'); echo $image[0]; ?>" , { expires: 1 , path: '/' });
+  $.cookie( "cast_photo" , "<?php $image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'medium'); echo $image[0]; ?>" , { expires: 1 , path: '/' });
   $.cookie( "cast_link" , "<?php echo the_permalink(); ?>" , { expires: 1 , path: '/' });
 
   //console.log($.cookie( "cast_photo" ));

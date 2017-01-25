@@ -40,7 +40,7 @@ $("#fakeLoader").fakeLoader({
 <div class="wrapper wrapper_header">
 
   <div class="content head">
-    <p class="logo"><a href="/"><img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>"></a></p>
+    <p class="logo"><a href="<?php echo site_url(); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>"></a></p>
     <?php query_posts('post_type=system'); ?>
     <?php if (have_posts()): while(have_posts()): the_post();?>
     <?php if(post_custom('電話番号')): ?>
@@ -65,17 +65,17 @@ $("#fakeLoader").fakeLoader({
 <!--GNAVI-->
 <div class="global_navi global_navi_pc">
   <ul>
-    <li><a href="/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ホーム<small>HOME</small></a></li>
-    <li><a href="/news/" class="first_link"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">お知らせ<small>NEWS</small></a></li>
-    <li><a href="/girls/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ガールズ<small>GIRLS</small></a></li>
-    <li><a href="/ranking/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ランキング<small>RANKING</small></a></li>
-    <li><a href="/schedule/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">スケジュール<small>SCHEDULE</small></a></li>
-    <li><a href="/event/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">イベント<small>EVENT</small></a></li>
-    <li><a href="/system/price_system/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">システム<small>SYSTEM</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ホーム<small>HOME</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/news/" class="first_link"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">お知らせ<small>NEWS</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/girls/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ガールズ<small>GIRLS</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/ranking/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ランキング<small>RANKING</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/schedule/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">スケジュール<small>SCHEDULE</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/event/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">イベント<small>EVENT</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/system/price_system/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">システム<small>SYSTEM</small></a></li>
   </ul>
   <div class="sub">
     <ul>
-      <?php wp_list_pages('title_li='); ?>
+      <?php wp_list_pages('title_li=&exclude=2,23,26,16'); ?>
     </ul>
   </div>
 

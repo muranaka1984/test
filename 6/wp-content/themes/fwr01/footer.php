@@ -2,18 +2,18 @@
   <div class="base">
     <div align="right"><p class="pagetop"><img src="<?php bloginfo('template_directory'); ?>/img/pagetop.png" alt="pagetop"></p></div>
 
-    <h3><a href="/">ホーム</a></h3>
+    <h3><a href="<?php echo site_url(); ?>/">ホーム</a></h3>
 
     <h3>CONTENT</h3>
     <ul class="footer_link">
-      <li><a href="/news/">お知らせ</a></li>
-      <li><a href="/girls/">ガールズ</a></li>
-      <li><a href="/ranking/">ランキング</a></li>
-      <li><a href="/schedule/">スケジュール</a></li>
-      <li><a href="/event/">イベント</a></li>
-      <li><a href="/system/price_system/">システム</a></li>
-      <li><a href="/blog/">ブログ</a></li>
-      <?php wp_list_pages('title_li=&exclude=2'); ?>
+      <li><a href="<?php echo site_url(); ?>/news/">お知らせ</a></li>
+      <li><a href="<?php echo site_url(); ?>/girls/">ガールズ</a></li>
+      <li><a href="<?php echo site_url(); ?>/ranking/">ランキング</a></li>
+      <li><a href="<?php echo site_url(); ?>/schedule/">スケジュール</a></li>
+      <li><a href="<?php echo site_url(); ?>/event/">イベント</a></li>
+      <li><a href="<?php echo site_url(); ?>/system/price_system/">システム</a></li>
+      <li><a href="<?php echo site_url(); ?>/blog/">ブログ</a></li>
+      <?php wp_list_pages('title_li=&exclude=2,23,26,16'); ?>
     </ul>
 
 
@@ -22,9 +22,9 @@
     <h3>GUIDE</h3>
     <ul class="footer_link">
     <?php if(post_custom('Googleマップ')): ?>
-      <li><a href="/access/">アクセス</a></li>
+      <li><a href="<?php echo site_url(); ?>/access/">アクセス</a></li>
     <?php endif; ?>
-      <li><a href="/contact/">お問い合わせフォーム</a></li>
+      <li><a href="<?php echo site_url(); ?>/contact/">お問い合わせフォーム</a></li>
      <?php if(post_custom('電話番号')): ?>
         <li><a href="tel:<?php echo post_custom('電話番号'); ?>">TEL : <?php echo post_custom('電話番号'); ?></a></li>
       <?php endif; ?>

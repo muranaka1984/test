@@ -36,7 +36,7 @@
 				</li>
 			<?php endwhile; ?>
 		</ul>
-		<div align="right" class="mt20"><a href="/giragiranight_news/" class="btn1">お知らせ一覧</a></div>
+		<div align="right" class="mt20"><a href="<?php echo site_url(); ?>/news/" class="btn1">お知らせ一覧</a></div>
 	</div>
 <?php endif; ?>
 <?php wp_reset_postdata(); wp_reset_query(); ?>
@@ -56,7 +56,7 @@
 				</li>
 			<?php endwhile; ?>
 		</ul>
-		<div align="right" class="mt20"><a href="/event/" class="btn1">イベント一覧</a></div>
+		<div align="right" class="mt20"><a href="<?php echo site_url(); ?>/event/" class="btn1">イベント一覧</a></div>
 	</div>
 <?php endif; ?>
 <?php wp_reset_postdata(); wp_reset_query(); ?>
@@ -87,7 +87,7 @@
 				</li>
 			<?php endwhile; ?>
 		</ul>
-		<div align="right" class="mt20"><a href="/blog/" class="btn1">もっと見る</a></div>
+		<div align="right" class="mt20"><a href="<?php echo site_url(); ?>/blog/" class="btn1">もっと見る</a></div>
 	</div>
 <?php endif; ?>
 <?php wp_reset_postdata(); wp_reset_query(); ?>

@@ -10,7 +10,7 @@ $service_account_email = 'testgira@appspot.gserviceaccount.com';
 $key = file_get_contents('testgira-29889c4023ee.p12');
  
 // プロファイル(ビュー)ID
-$profile = '59229148';
+$profile = '59237700';
  
 // Googleクライアントのインスタンスを作成
 $client = new Google_Client();
@@ -63,12 +63,12 @@ function getWeeklyReport($analytics, $profile){
   }
  
   // データを整形
-  $report = "<h1>".$start . '〜' . $end . '' . "</h1>\n";
-  $report .= '<dl><dt>訪問数</dt><dd><p>' . $this_week_data[0][0] ."</p><span>". calcReport( $this_week_data[0][0], $last_week_data[0][0] ) . "</span></dd></dl>\n";
-  $report .= '<dl><dt>合計PV</dt><dd><p>' . $this_week_data[0][1] ."</p><span>". calcReport( $this_week_data[0][1], $last_week_data[0][1] ) . "</span></dd></dl>\n";
-  $report .= '<dl><dt>平均閲覧ページ数</dt><dd><p>' . round( $this_week_data[0][2], 2 ) . calcReport( $this_week_data[0][2], $last_week_data[0][2] ) ."</p><span>". "</span></dd></dl>\n";
-  $report .= '<dl><dt>平均滞在時間</dt><dd><p>' . ceil( $this_week_data[0][3] ) . '秒' . calcReport( $this_week_data[0][3], $last_week_data[0][3] ) ."</p><span>". "</span></dd></dl>\n";
-  $report .= '<dl><dt>直帰率</dt><dd><p>' . round( $this_week_data[0][4], 1 ) . '%' . calcReport( $this_week_data[0][4], $last_week_data[0][4] ) ."</p><span>".  "</span></dd></dl>\n";
+  $report = "<h1><img src=\"img/admin_logo_n.png\">【".$start . '〜' . $end . '' . "】</h1>\n";
+  $report .= '<dl class="visit"><dt>訪問数</dt><dd><p>' . $this_week_data[0][0] ."<span>". calcReport( $this_week_data[0][0], $last_week_data[0][0] ) . "</span></p></dd></dl>\n";
+  $report .= '<dl class="pv"><dt>合計PV</dt><dd><p>' . $this_week_data[0][1] ."<span>". calcReport( $this_week_data[0][1], $last_week_data[0][1] ) . "</p></dd></dl>\n";
+  $report .= '<dl><dt>平均閲覧ページ数</dt><dd><p>' . round( $this_week_data[0][2], 2 ) ."<span>". calcReport( $this_week_data[0][2], $last_week_data[0][2] ) ."</span></p>". "</dd></dl>\n";
+  $report .= '<dl><dt>平均滞在時間</dt><dd><p>' . ceil( $this_week_data[0][3] ) . '<small>秒</small><span>' . calcReport( $this_week_data[0][3], $last_week_data[0][3] ) ."</span></p>". "</dd></dl>\n";
+  $report .= '<dl><dt>直帰率</dt><dd><p>' . round( $this_week_data[0][4], 1 ) . '<small>%</small><span>' . calcReport( $this_week_data[0][4], $last_week_data[0][4] ) ."</span></p>".  "</dd></dl>\n";
  
   return $report;
 }
@@ -89,19 +89,72 @@ function getWeeklyRanking($analytics, $profile){
   $data = $results->rows;
  
   // 7日前と昨日の日付を取得
-  $start = date('n/d', strtotime('-1 week'));
-  $end   = date('n/d', strtotime('-1 day'));
+//  $start = date('n/d', strtotime('-1 week'));
+//  $end   = date('n/d', strtotime('-1 day'));
  
   // 配列で取得したデータをループで回してランキングに
-  $ranking = "<h2>".$start . '〜' . $end . 'PVランキング' . "</h2><ul>\n";
+  $ranking = "<h2>" . '【 週 間 】' . "</h2><table><tr><th>ページ</th><th>ビュー数</th></tr>\n";
   foreach ($data as $key => $row) {
-    $ranking .= "<li>".($key + 1) . '.' . $row[0] . ' ' . $row[1] . 'PV' . "</li>\n";
+    $ranking .= "<tr><td><small>".($key + 1) . '</small>' . $row[0] . '</td><td><span>' . $row[1] . '' . "</span></td></tr>\n";
   }
   return $ranking;
 }
+function getSearchQueries($analytics, $profile){
+  $results = $analytics->data_ga->get(
+    'ga:' . $profile,
+    '7daysAgo',
+    'yesterday',
+    'ga:visitors',
+    array(
+      'dimensions'  => 'ga:sourceMedium',  // データの区切り
+      'sort'        => '-ga:visitors', // ページビューでソート
+      'max-results' => '5',            // 取得件数
+    )
+  );
  
+  // 取得したデータから必要な部分を抽出
+  $data = $results->rows;
+ 
+  // 7日前と昨日の日付を取得
+//  $start = date('n/d', strtotime('-1 week'));
+//  $end   = date('n/d', strtotime('-1 day'));
+ 
+  // 配列で取得したデータをループで回してランキングに
+  $queries = "<h2>" . '【 参照元 】' . "</h2><table><tr><th>参照元</th><th>人数</th></tr>\n";
+  foreach ($data as $key => $row) {
+    $queries .= "<tr><td><small>".($key + 1) . '</small>' . $row[0] . '</td><td><span>' . $row[1] . '' . "</span></td></tr>\n";
+  }
+  return $queries;
+}
+function getTheDayBefore($analytics, $profile){
+  $results = $analytics->data_ga->get(
+    'ga:' . $profile,
+    'yesterday',
+    'yesterday',
+    'ga:pageviews',
+    array(
+      'dimensions'  => 'ga:pageTitle',  // データの区切り
+      'sort'        => '-ga:pageviews', // ページビューでソート
+      'max-results' => '5',            // 取得件数
+    )
+  );
+ 
+  $data = $results->rows;
+ 
+ 
+  // 配列で取得したデータをループで回してランキングに
+  $yesterdaystr = date('m/d', strtotime('-1 day'));
+  $daybefore = "<h2>【 前 日 】" . $yesterdaystr . '' . "</h2><table><tr><th>ページ</th><th>ビュー数</th></tr>\n";
+  foreach ($data as $key => $row) {
+    $daybefore .= "<tr><td><small>".($key + 1) . '</small>' . $row[0] . '</td><td><span>' . $row[1] . '' . "</span></td></tr>\n";
+  }
+  return $daybefore;
+}
+
 $report = getWeeklyReport($analytics, $profile);
 $ranking = getWeeklyRanking($analytics, $profile); 
+$queries = getSearchQueries($analytics, $profile); 
+$daybefore = getTheDayBefore($analytics, $profile); 
 
 print("<!doctype html>
 <html>
@@ -114,9 +167,15 @@ print("<!doctype html>
 <title></title>
 </head>
 <body class=\"analytics_layer\">");
+echo "<div class=\"analytics_loader\"><img src=\"preloader01.gif\"></div><div class=\"analytics_content\">";
 print($report);
+echo "<div class=\"ranking\"><div class=\"ranking_box\">";
+print($daybefore);
+echo "</table>";
 print($ranking);
-echo "</ul>";
+echo "</table></div><div class=\"ranking_box\">";
+print($queries);
+echo "</table></div></div></div>";
 
 print("</body>
 </html>");

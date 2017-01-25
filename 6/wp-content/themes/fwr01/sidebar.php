@@ -1,8 +1,6 @@
 <div class="sidebar">
 
 
-
-
 <dl class="access_info">
   <dt>
     <?php if(post_custom('Googleマップ')): ?>
