@@ -301,6 +301,28 @@ echo'</div>';
 <?php endwhile; endif; ?>
 
 
+<div class="taiki_pop taiki_close">
+  <dl class="taiki_pop_tel">
+    <dt><p class="photo">
+      <?php if(post_custom('写真1')): ?>
+        <?php echo wp_get_attachment_image(get_post_meta($post->ID, '写真1', true),'medium'); ?>
+      <?php endif; ?>
+    </p>
+    <p class="txt">
+    <small><?php echo $title = get_the_title(); ?></small>
+      ご指名予約</p>
+    </dt>
+    <dd>
+      <p>ご指名予約はお電話から受け付けております。</p>
+      <p class="taiki_pop_tel_area"><span class="taiki_pop_tel_icon">TEL</span><a href="tel:">03-1234-4321</a></p>
+      <small>受付時間／9:00〜24:00</small>
+      <!--a href="/reserved_g/" class="taiki_pop_tel_mail">メールからのご指名予約はこちら</a-->
+      <div class="taiki_pop_tel_close"><img src="http://test-gira.xyz/wp-content/themes/giragira/img/icon_menu_close_trans.png" height="20"> 閉じる
+      </div>
+    </dd>
+  </dl>
+</div>
+
 
 <div class="content">
 <div><br></div>
