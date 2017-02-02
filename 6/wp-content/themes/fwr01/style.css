@@ -82,10 +82,6 @@ h2{
 GNAVI
 =========================*/
 
-.global_navi{
-  overflow-y: scroll;
-}
-
 .global_navi ul,
 .global_navi .global_navi_header{
 /*
@@ -223,13 +219,17 @@ GNAVI PC
   border-bottom: none;
   display: inline-block;
 }
+.global_navi_pc .sub ul li a:hover{
+  background: rgba(255,255,255,0.8);
+  color: rgba(0,0,0,0.9);
+}
 .global_navi_pc li a small{
   font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   display: block;
   font-size: 10px;
   line-height: 100%;
   font-weight: normal;
-  color: rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.4);
   padding-top: 3px;
 }
 .home .global_navi_pc li.gnavi_home a,
@@ -244,7 +244,7 @@ GNAVI PC
   background: rgba(155,155,155,0.3);
 }
 .global_navi_pc li a:hover{
-  background: #f1f1f1;
+  background: rgba(255,255,255,0.1);
 }
 .global_navi_pc .sub ul li a:hover{
   border-bottom: none;
@@ -525,6 +525,9 @@ body.home .wrapper.wrapper_header{
 }
 .wrapper_header .tel{
   margin: 0 10px;
+}
+.wrapper_header .head_right{
+  display: inline-block;
 }
 .content{
   max-width: 1200px;
@@ -867,38 +870,38 @@ a:hover .icon_type span{
 
 
 /* CAST BXSLIDER */
-.bx-wrapper{
+.single-girls .bx-wrapper{
   width: 60%;
   padding-left: 40%;
   position: relative;
 }
-.bx-viewport{
+.single-girls .bx-viewport{
 }
-.bx-viewport img{
+.single-girls .bx-viewport img{
   width: 100%;
   height: auto;
   transition : all 1.7s ease;
 }
-.bx-viewport img:hover{
+.single-girls .bx-viewport img:hover{
   transform: scale(0.7,0.7);
 }
-.bx-controls{
+.single-girls .bx-controls{
   position: absolute;
   top: 45%;
   left: 0;
   width: 38%;
   text-align: right
 }
-.bx-pager{
+.single-girls .bx-pager{
   font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", 'ヒラギノ角ゴ Pro W6','Hiragino Kaku Gothic Pro';
   font-size: 70px;
   line-height: 100%;
   font-weight: normal;  
 }
-.bx-pager:first-letter{
+.single-girls .bx-pager:first-letter{
   font-size: 140px;
 }
-.bx-controls-direction a{
+.single-girls .bx-controls-direction a{
   color:#707070;
   display: inline-block;
   padding: 10px 20px;
@@ -909,7 +912,7 @@ a:hover .icon_type span{
   margin: 10px;
   text-decoration: none;
 }
-.bx-controls-direction a:hover{
+.single-girls .bx-controls-direction a:hover{
   background: rgba(0,0,0,0.1);
 }
 #secondary{
@@ -1185,7 +1188,7 @@ a:hover .icon_type span{
 .page-template-default .content{
   /*  max-width: 1000px; */
 }
-.page-template-default p{
+.page-template-default .layout_2column_main p{
   margin: 1em 0;
 }
 .page-template-page-access p{
@@ -1921,6 +1924,78 @@ dl.qanda dd{
 }
 
 
+
+
+/* Top BXSlider */
+
+.home .bx-wrapper{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+.home .bxsliderTop img{
+  max-width: 100%;
+  height: auto;
+}
+.home .bx-wrapper .bx-controls{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.home .bx-wrapper .bx-pager-item{
+  display: inline-block;
+  margin: 0 10px;
+  padding-bottom: 10px;
+}
+.home .bx-pager-link{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-indent: -100px;
+  background: rgba(255,255,255,0);
+  border: 4px solid rgba(0,0,0,0.2);
+  border-radius: 16px;
+}
+.home .bx-pager-link.active{
+  background: rgba(255,255,255,0.9);  
+  border: 4px solid rgba(0,0,0,0.8);
+}
+
+
+.single_reservation_link{
+  transition : all 0.2s ease;
+  display: block;
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: #f1f1f1;
+  /*  background: linear-gradient(#fff, #ebebeb);  */
+  border: 4px solid #DDD;
+  /*  border-radius: 5px; */
+  background: #333;
+  padding: 15px 0;
+  box-sizing: border-box;
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.single_reservation_link:hover{
+  background: #000;
+  color:#ccc;
+  border: 4px solid #333;
+}
+
+
+
 /* --------------------------------------------
 1024px
 -------------------------------------------- */
@@ -1932,7 +2007,8 @@ dl.qanda dd{
   .content{
     padding: 0 15px;
   }
-  .sidebar{
+  .sidebar,
+  .footer{
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -2038,6 +2114,9 @@ dl.qanda dd{
 640px
 -------------------------------------------- */
 @media screen and (max-width: 640px){
+  .global_navi{
+    overflow-y: scroll;
+  }
   body.admin-bar .global_navi_sp{
     top: 46px;
   }
@@ -2082,6 +2161,9 @@ dl.qanda dd{
     display: block;
     width: auto;
     margin-left: 0;
+  }
+  .global_navi ul li:last-child a{
+    border-bottom: none;
   }
   .sp_menu img,
   .sp_menu_close img{
@@ -2150,39 +2232,61 @@ dl.qanda dd{
   .layout_2column_child.layout_2column_sub{
     border-left: none;
   }
+
+  .wrapper_header .head{
+    text-align: left;
+    overflow: hidden;
+    padding: 6px 0;
+    display: table;
+  }
+  .wrapper_header .logo{
+    float: none;
+    width: 38%;
+    line-height: 100%;
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .wrapper_header .head_right{
+    box-sizing: border-box;
+    padding-left: 6px;
+    font-size: 0.9em;
+    float: none;
+    width: 62%;
+    line-height: 1.2em;
+    display: table-cell;
+    vertical-align: middle;
+  }  
+  .wrapper_header .tel{
+    line-height: 1.8em;
+    font-size: 13px;
+    margin: 0;
+    display: block;
+  }  
+  .wrapper_header .logo{
+    padding-left: 65px;
+    text-align: right;
+  }
+  .wrapper_header .type{
+    display: none;
+  }
+  .wrapper_header .logo img{
+    width: 100%;
+    max-width: 100px;
+    max-height: none;
+    vertical-align: top;
+  }
+
 }
 
 
 
 /* --------------------------------------------
-MOBILE  425px
+MOBILE  568px
 -------------------------------------------- */
-@media screen and (max-width: 425px){
+@media screen and (max-width: 568px){
   .wrapper.wrapper_header{
     padding-bottom: 10px;
-  }
-  .wrapper_header .head{
-    text-align: center;
-    overflow: hidden;
-  }
-  .wrapper_header .logo,
-  .wrapper_header .tel{
-    float: left;
-    width: 38%;
-    line-height: 60px;
-    box-sizing: border-box;
-  }
-  .wrapper_header .tel{
-    width: 62%;
-  }  
-  .wrapper_header .logo{
-    padding-left: 45px;
-  }
-  .wrapper_header .logo img,
-  .wrapper_header .tel img{
-    max-width: 100%;
-    max-height: none;
-    vertical-align: top;
   }
   th,td{
     padding:0.5em;
@@ -2292,7 +2396,9 @@ MOBILE  425px
     background: #f1f1f1;
   }
   .global_navi ul li a{
-    height: 50px;
+    margin: 0;
+    padding-bottom: 8px;
+    box-sizing: border-box;
   }
   .schedule .cast_todayschedule{
     padding: 0;

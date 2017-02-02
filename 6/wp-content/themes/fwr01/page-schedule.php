@@ -21,10 +21,13 @@ echo'<table class="weeklist_cast"><tr><td class="thumb">';
 echo '<a href="';
 echo the_permalink();
 echo '" class="cast_todayschedule"><dl><dt><img src="';
-$image = wp_get_attachment_image_src(get_post_meta($post->ID, 'ギラギラナイト写真1', true), 'thumbnail');
-echo $image[0];
-echo '"';
-echo 'alt="';
+    if(get_post_meta($post->ID,'写真1',true)):
+    $image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'thumbnail');
+    echo $image[0];
+    else:
+    echo bloginfo('template_directory')."/img/nophoto1_thumbnail.png";
+    endif;
+echo '" alt="';
 echo $title = get_the_title();
 echo '"></dt><dd>';
 echo $title = get_the_title();
@@ -53,11 +56,7 @@ echo '</dd></dl></a></td>';
 echo'<div class="weeklist_base"><table class="weeklist"><tr><th class="thumb">　</th>';
   for($i=0; $i<7; $i++){ // 1日分の予定を表示
     $time = strtotime('+' . $i . ' days');
-    if(qtranxf_getLanguage() == 'ja'):
-      $weekday = array( '日', '月', '火', '水', '木', '金', '土' );
-    elseif(qtranxf_getLanguage() == 'en'):
-      $weekday = array( 'Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat' );
-    endif;
+    $weekday = array( '日', '月', '火', '水', '木', '金', '土' );
     $key = 'date-' . date('m-d', $time);
     echo '<th class="';
     echo date('l', $time);
@@ -74,10 +73,13 @@ echo'<div class="weeklist_base"><table class="weeklist"><tr><th class="thumb">�
   echo '<a href="';
   echo the_permalink();
   echo '" class="cast_todayschedule"><dl><dt><img src="';
-  $image = wp_get_attachment_image_src(get_post_meta($post->ID, 'ギラギラナイト写真1', true), 'thumbnail');
-  echo $image[0];
-  echo '"';
-  echo 'alt="';
+    if(get_post_meta($post->ID,'写真1',true)):
+    $image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'thumbnail');
+    echo $image[0];
+    else:
+    echo bloginfo('template_directory')."/img/nophoto1_thumbnail.png";
+    endif;
+  echo '" alt="';
   echo $title = get_the_title();
   echo '"></dt><dd>';
   echo $title = get_the_title();

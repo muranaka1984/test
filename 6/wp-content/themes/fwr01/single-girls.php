@@ -313,10 +313,10 @@ echo'</div>';
       ご指名予約</p>
     </dt>
     <dd>
-      <p>ご指名予約はお電話から受け付けております。</p>
+      <p>ご指名予約はお電話・メールから受け付けております。</p>
       <p class="taiki_pop_tel_area"><span class="taiki_pop_tel_icon">TEL</span><a href="tel:">03-1234-4321</a></p>
       <small>受付時間／9:00〜24:00</small>
-      <!--a href="/reserved_g/" class="taiki_pop_tel_mail">メールからのご指名予約はこちら</a-->
+      <a href="<?php echo site_url(); ?>/reservation/" class="taiki_pop_tel_mail">メールからのご指名予約はこちら</a>
       <div class="taiki_pop_tel_close"><img src="http://test-gira.xyz/wp-content/themes/giragira/img/icon_menu_close_trans.png" height="20"> 閉じる
       </div>
     </dd>
@@ -325,6 +325,9 @@ echo'</div>';
 
 
 <div class="content">
+
+<div class="taiki_open single_reservation_link">ご予約はこちらから</div>
+
 <div><br></div>
 <div><br></div>
 <ul class="top_foot_guide">

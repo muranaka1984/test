@@ -66,8 +66,13 @@
 	<div class="news">
 		<ul>
 			<li>
+				<a href="/reservation/">
+				<p class="tt"><small>■</small>ご指名予約お申し込み</p>
+				</a>
+			</li>
+			<li>
 				<a href="/contact/">
-				<small>■</small><p class="tt">お問い合わせフォーム</p>
+				<p class="tt"><small>■</small>お問い合わせフォーム</p>
 				</a>
 			</li>
 		</ul>

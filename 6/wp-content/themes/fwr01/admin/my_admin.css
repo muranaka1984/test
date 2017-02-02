@@ -15,6 +15,11 @@ a {
 a:hover{
   color: #17413b;
 }
+textarea{
+  max-width: 100%;
+  width: 100%;
+}
+
 #adminmenu,
 #adminmenu .wp-submenu,
 #adminmenuback,
@@ -636,7 +641,7 @@ ul#adminmenu>li.current>a.current:after {
 .menu-icon-system .dashicons-before:before{
   content: "\f111";
 }
-.menu-icon-covergirls .dashicons-before:before{
+.menu-icon-slide .dashicons-before:before{
   content: "\f233";
 }
 
@@ -753,25 +758,25 @@ ul#adminmenu>li.current>a.current:after {
 
 
 
-/* SYSTEM POST COVER GIRLS POST */
+/* SYSTEM POST SLIDE POST */
 .wp-admin.post-type-system .postarea.wp-editor-expand,
-.wp-admin.post-type-covergirls .postarea.wp-editor-expand{
+.wp-admin.post-type-slide .postarea.wp-editor-expand{
   display: none;
 }
 .wp-has-submenu.menu-icon-system .wp-submenu.wp-submenu-wrap,
-.wp-has-submenu.menu-icon-covergirls .wp-submenu.wp-submenu-wrap{
+.wp-has-submenu.menu-icon-slide .wp-submenu.wp-submenu-wrap{
   display: none;
 }
 .wp-admin.post-type-system h1 .page-title-action,
 .wp-admin.post-type-system .tablenav.top,
-.wp-admin.post-type-covergirls h1 .page-title-action,
-.wp-admin.post-type-covergirls .tablenav.top{
+.wp-admin.post-type-slide h1 .page-title-action,
+.wp-admin.post-type-slide .tablenav.top{
   display: none;
 }
 .wp-admin.post-type-system .subsubsub,
 .wp-admin.post-type-system .search-box,
-.wp-admin.post-type-covergirls .subsubsub,
-.wp-admin.post-type-covergirls .search-box{
+.wp-admin.post-type-slide .subsubsub,
+.wp-admin.post-type-slide .search-box{
   display: none;
 }
 

@@ -4,8 +4,12 @@
 	<div class="content">
 
   <h1 class="c_tt">
-    <?php the_title(); ?>    
+    <?php if(post_custom('ページタイトル英語')): ?>
+      <?php echo post_custom('ページタイトル英語'); ?>
+    <?php endif; ?>
+    <small>- <?php the_title(); ?> -</small>
   </h1>
+
 
   <div class="layout_2column">
     <div class="layout_2column_child layout_2column_main">
@@ -20,6 +24,17 @@
 
   </div>
 </div>
+
+<?php if ( is_page(51) ) : ?>
+<script>
+  $(function(){
+  // reserved
+  var reserved_name = ($.cookie( "reserved" ));
+  $(".your-reserved_name input").val(reserved_name);
+});
+</script>
+<?php endif; ?>
+
 
 
 <?php get_sidebar(); ?>

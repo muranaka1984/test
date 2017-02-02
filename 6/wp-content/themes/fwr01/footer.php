@@ -13,7 +13,7 @@
       <li><a href="<?php echo site_url(); ?>/event/">イベント</a></li>
       <li><a href="<?php echo site_url(); ?>/system/price_system/">システム</a></li>
       <li><a href="<?php echo site_url(); ?>/blog/">ブログ</a></li>
-      <?php wp_list_pages('title_li=&exclude=2,23,26,16'); ?>
+      <?php wp_list_pages('title_li=&exclude=2,23,26,16,51'); ?>
     </ul>
 
 
@@ -24,6 +24,7 @@
     <?php if(post_custom('Googleマップ')): ?>
       <li><a href="<?php echo site_url(); ?>/access/">アクセス</a></li>
     <?php endif; ?>
+      <li><a href="<?php echo site_url(); ?>/reservation/">ご指名予約お申し込み</a></li>
       <li><a href="<?php echo site_url(); ?>/contact/">お問い合わせフォーム</a></li>
      <?php if(post_custom('電話番号')): ?>
         <li><a href="tel:<?php echo post_custom('電話番号'); ?>">TEL : <?php echo post_custom('電話番号'); ?></a></li>

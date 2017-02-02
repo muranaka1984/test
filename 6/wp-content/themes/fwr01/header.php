@@ -19,8 +19,8 @@
   <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/fakeLoader/fakeLoader.css" type="text/css" media="all">
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/fakeLoader/fakeLoader.min.js"></script>
   <?php if ( is_home() || is_front_page() ) : ?>
-    <link rel='stylesheet' href='<?php bloginfo('template_directory'); ?>/css/style_topintro.css' type='text/css' media='all'>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/intro_top.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/intro.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.bxslider.min.js"></script>
   <?php endif; ?>
 </head>
 
@@ -41,6 +41,7 @@ $("#fakeLoader").fakeLoader({
 
   <div class="content head">
     <p class="logo"><a href="<?php echo site_url(); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="<?php bloginfo('name'); ?>"></a></p>
+      <div class="head_right">
     <?php query_posts('post_type=system'); ?>
     <?php if (have_posts()): while(have_posts()): the_post();?>
     <?php if(post_custom('電話番号')): ?>
@@ -56,7 +57,7 @@ $("#fakeLoader").fakeLoader({
     <?php endif; ?>
     <?php endwhile; endif; ?>
     <?php wp_reset_postdata(); wp_reset_query(); ?>
-
+    </div>
   </div>
 
 </div>
@@ -66,7 +67,7 @@ $("#fakeLoader").fakeLoader({
 <div class="global_navi global_navi_pc">
   <ul>
     <li><a href="<?php echo site_url(); ?>/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ホーム<small>HOME</small></a></li>
-    <li><a href="<?php echo site_url(); ?>/news/" class="first_link"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">お知らせ<small>NEWS</small></a></li>
+    <li><a href="<?php echo site_url(); ?>/news/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">お知らせ<small>NEWS</small></a></li>
     <li><a href="<?php echo site_url(); ?>/girls/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ガールズ<small>GIRLS</small></a></li>
     <li><a href="<?php echo site_url(); ?>/ranking/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">ランキング<small>RANKING</small></a></li>
     <li><a href="<?php echo site_url(); ?>/schedule/"><img src="<?php bloginfo('template_directory'); ?>/img/arrow_gray.png">スケジュール<small>SCHEDULE</small></a></li>
@@ -75,7 +76,7 @@ $("#fakeLoader").fakeLoader({
   </ul>
   <div class="sub">
     <ul>
-      <?php wp_list_pages('title_li=&exclude=2,23,26,16'); ?>
+      <?php wp_list_pages('title_li=&exclude=2,23,26,16,51'); ?>
     </ul>
   </div>
 

@@ -12,6 +12,7 @@ get_header(); ?>
 <div class="wrapper">
 	<div class="content">
 
+<h1 class="c_tt">ACCESS<small>- アクセス -</small></h1>
 
 <div class="layout_2column">
 

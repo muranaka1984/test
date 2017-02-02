@@ -21,7 +21,7 @@ for($i=0; $i<1; $i++){ // 1日分の予定を表示
 		$image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'medium');
 		echo $image[0];
 	} else {
-		echo bloginfo('template_directory')."/img/0.png";
+		echo bloginfo('template_directory')."/img/nophoto1.png";
 	};
 	echo '" alt="';
 	echo $title = get_the_title();

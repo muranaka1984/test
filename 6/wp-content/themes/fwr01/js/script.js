@@ -42,6 +42,22 @@ $(window).on('load resize', function(){
     });
   }
 
+  // リサイズ時にリロード
+  if (w <= 640 && w >= 568) {
+    var timer = false;
+    $(window).resize(function() {
+      if (timer !== false) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(function() {
+        location.reload();
+      }, 200);
+    });
+
+  }
+
+
+
   // pagetop
   $('.pagetop').click(function() {
     $('html,body').animate({

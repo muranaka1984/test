@@ -1,5 +1,47 @@
 <?php get_header(); ?>
 
+
+<?php if ( is_home() || is_front_page() ) : ?>
+<?php query_posts('post_type=slide'); ?>
+<?php if (have_posts()): the_post();?>
+	<?php if(post_custom('スライドショー1')): ?>
+	<ul class="bxsliderTop">
+  <li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'スライドショー1', true),'full'); ?></li>
+ 	<?php endif; ?>
+	<?php if(post_custom('スライドショー2')): ?>
+  <li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'スライドショー2', true),'full'); ?></li>
+ 	<?php endif; ?>
+	<?php if(post_custom('スライドショー3')): ?>
+  <li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'スライドショー3', true),'full'); ?></li>
+ 	<?php endif; ?>
+	<?php if(post_custom('スライドショー4')): ?>
+  <li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'スライドショー4', true),'full'); ?></li>
+ 	<?php endif; ?>
+	<?php if(post_custom('スライドショー5')): ?>
+  <li><?php echo wp_get_attachment_image(get_post_meta($post->ID, 'スライドショー5', true),'full'); ?></li>
+ 	<?php endif; ?>
+	<?php if(post_custom('スライドショー1')): ?>
+	</ul>
+	<?php endif; ?>
+
+<?php endif; ?>
+<?php wp_reset_postdata(); wp_reset_query(); ?>
+
+
+<script>
+	$(document).ready(function(){
+		$('.bxsliderTop').bxSlider({
+			pause: 4000,
+			speed: 1000,
+			auto: true,
+			autoHover: false,
+			controls: false,
+		});
+	});
+</script>
+<?php endif; ?>
+
+
 <div class="wrapper">
 	<div class="content">
 
@@ -17,8 +59,12 @@ for($i=0; $i<1; $i++){ // 1日分の予定を表示
 	$time = strtotime('+' . $i . ' days');
 	$key = 'date-' . date('m-d', $time);
 	echo '<dt><img src="';
-	$image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'medium');
-	echo $image[0];
+		if(get_post_meta($post->ID,'写真1',true)):
+		$image = wp_get_attachment_image_src(get_post_meta($post->ID, '写真1', true), 'medium');
+		echo $image[0];
+		else:
+		echo bloginfo('template_directory')."/img/nophoto1.png";
+		endif;
 	echo '" alt="';
 	echo $title = get_the_title();
 	echo 'の写真"></dt><dd>';
