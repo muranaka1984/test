@@ -229,7 +229,7 @@ GNAVI PC
   font-size: 10px;
   line-height: 100%;
   font-weight: normal;
-  color: rgba(255,255,255,0.4);
+  color: rgba(0,0,0,0.4);
   padding-top: 3px;
 }
 .home .global_navi_pc li.gnavi_home a,
@@ -244,7 +244,7 @@ GNAVI PC
   background: rgba(155,155,155,0.3);
 }
 .global_navi_pc li a:hover{
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
 }
 .global_navi_pc .sub ul li a:hover{
   border-bottom: none;
