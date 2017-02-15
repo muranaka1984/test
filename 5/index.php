@@ -35,24 +35,28 @@
 
     <script>
       $(function(){
+        var position = $("#domain").offset().top;
         $(".domain_name").click(function() {
           $(".domain_name").removeAttr('placeholder');
         });
         $(".submit").on("click",function(){
           $(".preloader").addClass("start");
-      // $i = "greengreengreen"
-      $i = $(".domain_name").val();
-      $.post(
-        "domain_check.php",
-        {
-          name:$i,
-        },
-        function( data ) {
-          $( "#domain" ).html( data );
-          //console.log("comp");
-          $(".preloader").removeClass("start");
+          $i = $(".domain_name").val();
+          $.post(
+            "domain_check.php",
+            {
+              name:$i,
+            },
+            function( data ) {
+              $( "#domain" ).html( data );
+              $(".preloader").removeClass("start");
+            });
+          $("html,body").animate({
+            scrollTop : position
+          }, {
+            queue : false
+          });
         });
-    });
       })
     </script>
 
@@ -165,7 +169,7 @@
 
     <div class="content_box content_box_read">
       <p>
-        Neooo!は『ホームページへの投資を確実に利益に還元する』という想いを元に開発・提供を始めました。
+        Neooo!は『ホームページへの投資を確実に利益に還元する』を元に開発・提供を始めました。
         ○○業界では1本当たりの利益は平均約8,000円と言われておりますが、
         Neooo!は月額利用料が6,500円です。それ以外にかかる費用は一切ありません。
       </p>
@@ -176,7 +180,7 @@
 
 
     <div class="merit_wrap">
-      <h2><span>レスポンシブデザイン</span></h2>
+      <h2><span>Neooo!はレスポンシブデザイン</span></h2>
       <div class="content_box">
 
         <p>
@@ -217,7 +221,8 @@
 
     <h2><span>事例</span></h2>
     <div class="content_box">
-      <p>Neooo!の活用事例です。低コスト低リスクでお客様の目標達成に大きく貢献しています。</p>
+      <p>Neooo!の活用事例です。最小限で最大限の目標達成に大きく貢献しています。</p>
+      <div align="center"><p>現在準備中です。</p></div>
     </div>
 
 
@@ -234,7 +239,33 @@
       </dl>
     </div>
 
-    <h2><span>費用</span></h2>
+    <h2><span>サービス・機能</span></h2>
+
+    <div class="content_box">
+      <table class="hikaku">
+        <tr>
+          <th>管理機能</th>
+          <td>
+          ホームページ専用の管理画面があり、
+          店舗さまは様々なページ・コンテンツを
+          いつでも自由に更新ができます。
+          </td>
+        </tr>
+        <tr>
+          <th nowrap="nowrap">ガールズ管理</th>
+          <td>
+          女の子情報を管理します。
+          ・プロフィール
+          ・写真
+          ・出勤情報
+          </td>
+        </tr>
+
+      </table>
+
+
+    </div>
+
 
 
 
@@ -381,18 +412,17 @@
         <dl>
           <dt>気に入ったデザインがありません。</dt>
           <dd>
-            新たにデザインを作成いたしますので、
-            こちらからご希望のイメージをお伝え下さい。
-            <a href="">希望のイメージを伝える</a>
-            ※ご希望のデザインに100%お応えすることをお約束することはできませんのでご了承ください。
+            ご希望のイメージ・参考デザインをご連絡下さい。
+            新たなデザインを作成いたします。（完成後、HPにてお知らせします。）
+            <a href="">イメージ・参考デザインを伝える</a>
           </dd>
         </dl>
         <dl>
           <dt>ロゴを一緒に作ってもらうことはできますか？</dt>
           <dd>
-            　はい、もちろん出来ます。
+            はい、もちろん出来ます。
             Neooo!申し込み時に、ロゴ制作も一緒にオーダーして下さい。
-            <a href="">お申し込みはこちら</a>
+            <a href="#entry">お申し込みはこちら</a>
             <p>
               ※注記<br>
               別途費用はかかりません。<br>
@@ -409,7 +439,7 @@
             ロゴのみのご依頼【￥8.000（税込）】も承っておりますので、
             こちらからお気軽にお申し込み下さい。
             <p>
-              <a href="">ロゴ制作のみオーダーする</a>
+              <a href="">ロゴ制作のみ依頼する</a>
             </p>
           </dd>
         </dl>

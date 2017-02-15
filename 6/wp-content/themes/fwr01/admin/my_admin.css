@@ -61,12 +61,15 @@ div.wp-menu-image:before,
   background: rgba(205, 233, 241, 1);
   color: rgba(44, 96, 88, 1);
 }
+.dashicons-before:before,
 .wp-menu-name {
-  /*
-background: rgba(44, 96, 88, 1) !important; 
-color: rgba(205, 233, 241, 1) !important;  
-*/
+  line-height: 36px;
 }
+.opensub .wp-submenu.wp-submenu-wrap{
+  display: none;
+}
+
+
 #adminmenu li.wp-has-submenu.wp-not-current-submenu:hover:after {
   display: none;
 }
@@ -109,14 +112,19 @@ ul#adminmenu>li.current>a.current:after {
 #adminmenu li {}
 #adminmenu li.menu-top:hover,
 #adminmenu li.opensub>a.menu-top,
-#adminmenu li>a.menu-top:focus {
+#adminmenu li>a.menu-top:focus,
+.wp-has-submenu:hover{
   position: relative;
   background: rgba(205, 233, 241, 1) !important;
   color: rgba(44, 96, 88, 1) !important;
 }
+#adminmenu li>a.menu-top:focus .wp-menu-image:before,
+.wp-has-submenu:hover .wp-menu-name,
+.wp-has-submenu:hover .wp-menu-image:before{
+  color: rgba(44, 96, 88, 1) !important;  
+}
 #adminmenu .wp-submenu-head,
 #adminmenu a.menu-top {
-  padding: 5px 0 5px 0;
 }
 #adminmenu .wp-submenu {
   left: 240px;
@@ -136,10 +144,8 @@ ul#adminmenu>li.current>a.current:after {
   }
 }
 #adminmenu .wp-submenu-head, #adminmenu a.menu-top{
-  padding: 8px 0;
 }
-#adminmenu .wp-submenu{
-  padding: 0;
+#adminmenu a.wp-submenu{
 }
 #adminmenu .wp-menu-open a.wp-has-current-submenu{
 
@@ -234,13 +240,11 @@ ul#adminmenu>li.current>a.current:after {
   padding: 8px 10px !important;
 }
 #adminmenu .wp-has-current-submenu a.menu-top{
-  padding: 0;
 }
 #adminmenu .wp-has-current-submenu .wp-menu-name{
-  padding: 16px 0;
 }
 #adminmenu .wp-has-current-submenu .wp-menu-image{
-  margin-top: 8px;
+  /* margin-top: 8px; */
 }  
 #dashboard-widgets{
   font-size: 50px;
@@ -282,7 +286,7 @@ ul#adminmenu>li.current>a.current:after {
   padding-bottom: 20px;
 }
 .dashboard_navi li{
-  min-width: 25%;
+  min-width: 33%;
   float: left;
   box-sizing: border-box;
   padding: 10px;
@@ -349,7 +353,7 @@ ul#adminmenu>li.current>a.current:after {
   content: "\f464";
 }
 #wpadminbar{
-  background: rgba(44, 96, 88, 1);
+  background: rgba(44, 96, 88, 1) !important;
   display: none;
 }
 @media screen and (max-width: 782px){
@@ -799,14 +803,114 @@ ul#adminmenu>li.current>a.current:after {
   color: #f1f1f1;
 }
 
+.wp-submenu-wrap{
+  box-sizing: border-box;
+  padding: 6px !important;
+}
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu li.wp-has-current-submenu *:before{
+  color: rgba(205, 233, 241, 1) !important;
+}
+
+#dashboard_right_now{
+  display: none;
+}
+
+
+
+@media screen and (max-width:782px) {
+  #adminmenu .wp-not-current-submenu .wp-submenu, .folded #adminmenu .wp-has-current-submenu .wp-submenu{
+    min-width: 190px;
+  }
+  .dashboard_navi li{
+    float: none;
+    min-width: 100%;
+  }
+  .wp-editor-area{
+    font-size: 16px !important;
+    resize: none;
+    -webkit-appearance: none;
+  }
+  #poststuff{
+    min-width: 100%;
+  }
+  .auto-fold #adminmenu div.wp-menu-image{
+    height: 34px !important;
+  }
+  .auto-fold #adminmenu .wp-menu-name{
+    margin-left: 34px !important;
+  }
+  .wp-submenu-wrap{
+    background: #0b2824 !important;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+  .wp-submenu-wrap a{
+    font-size: 12px !important;
+    background: #0b2824 !important;
+  }
+  .wp-submenu-wrap a:hover{
+    background: rgba(205, 233, 241, 1) !important;
+    color: #0b2824 !important;
+  }
+  .wp-menu-open .wp-submenu-head{
+    color: #0b2824 !important;    
+    background: #0b2824 !important;
+  }
+  .dashicons-before:before,
+  .wp-menu-name {
+    line-height: 1em;
+  }
+  .wrap{
+    margin-right: 10px !important;
+  }
+
+}
+
+
+.wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before{
+  color: rgba(205, 233, 241, 1);
+}
+.wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle a{
+  background: rgba(44, 96, 88, 1);
+}
+#wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before,
+#wpadminbar #wp-admin-bar-menu-toggle:hover .ab-icon:before,
+#wpadminbar #wp-admin-bar-new-content:hover .ab-icon:before,
+#wpadminbar #wp-admin-bar-root-default li .ab-icon:before{
+  color: rgba(205, 233, 241, 1) !important;  
+}
+
+
+#adminmenu .current div.wp-menu-image:before, #adminmenu .wp-has-current-submenu div.wp-menu-image:before,
+#adminmenu a.current:hover div.wp-menu-image:before, #adminmenu a.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu:hover div.wp-menu-image:before {
+  color: rgba(44, 96, 88, 1);
+}
+
+#wp-admin-bar-top-secondary,
+#wp-admin-bar-site-name,
+#wp-admin-bar-new-content,
+#wp-admin-bar-comments,
+#wp-admin-bar-wp-logo,
+#wp-admin-bar-updates{
+  display: none !important;
+}
+
+.wp-not-current-submenu .wp-submenu-head{
+  color: rgba(44, 96, 88, 1) !important;
+}
+
+
+
+
 
 /*=====================
-
-  FIX CUSTOM
-
 =====================*/
 .role-editor #screen-meta-links{
-  display: none;
+  display: block;
 }
 .role-editor .wp-submenu.wp-submenu-wrap{
   display: none;  

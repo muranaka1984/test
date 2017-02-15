@@ -805,3 +805,26 @@ add_filter( 'get_the_archive_title', function ($title) {
 	} 
 	return $title;
 });
+
+// 管理画面ロゴ
+function custom_login_logo() { ?>
+	<style>
+		.login #login h1 a {
+			width: 300px;
+			height: 100px;
+			background: url(<?php echo get_stylesheet_directory_uri(); ?>/img/logo_login.png) no-repeat 0 0;
+			background-size: cover;
+			margin-bottom: 0;
+		}
+	</style>
+<?php }
+add_action( 'login_enqueue_scripts', 'custom_login_logo' );
+
+
+// 管理画面一覧非表示
+function custom_columns($columns) {
+unset($columns['author']);
+return $columns;
+}
+add_filter( 'manage_posts_columns', 'custom_columns' );
+
