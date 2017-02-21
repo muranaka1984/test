@@ -428,7 +428,7 @@ remove_action('wp_head', 'feed_links_extra', 3);
 // スタイルシートを削除します
 // remove_action('wp_head', 'wp_print_styles', 8);
 // スクリプトを削除します
-//remove_action('wp_head', 'wp_print_head_scripts', 9);
+// remove_action('wp_head', 'wp_print_head_scripts', 9);
 // リンク情報「prev」「next」を削除します
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 // リンク情報「shortlink」を削除します
@@ -479,4 +479,10 @@ function pagename_class($classes = '') {
 add_filter('body_class', 'pagename_class');
 
 
-
+// wp_headでjQueryを読み込まないようにする方法
+/*
+function my_delete_local_jquery() {
+    wp_deregister_script('jquery');
+}
+add_action( 'wp_enqueue_scripts', 'my_delete_local_jquery' );
+*/
