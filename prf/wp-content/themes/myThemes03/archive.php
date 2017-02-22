@@ -77,7 +77,7 @@
   <h3>カテゴリー</h3>
   <div class="news">
     <ul>
-      <?php wp_list_categories('title_li=&depth=2'); ?>
+      <?php wp_list_categories('title_li=&depth=3'); ?>
     </ul>
   </div>
   <h3>アーカイブ</h3>

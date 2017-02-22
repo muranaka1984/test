@@ -426,7 +426,7 @@ add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
 remove_action('wp_head', 'feed_links', 2);
 remove_action('wp_head', 'feed_links_extra', 3);
 // スタイルシートを削除します
-// remove_action('wp_head', 'wp_print_styles', 8);
+remove_action('wp_head', 'wp_print_styles', 8);
 // スクリプトを削除します
 // remove_action('wp_head', 'wp_print_head_scripts', 9);
 // リンク情報「prev」「next」を削除します
@@ -444,15 +444,16 @@ remove_action('wp_head', 'wp_generator');
 
 
 // トップページ　タイトルタグ
+
 function my_document_title( $title ) {
     // トップページの条件分岐
     if ( is_front_page() && is_home() ) {
         $title = get_bloginfo( 'name', 'display' );
 
     // 個別記事や固定ページの条件分岐
-    } elseif ( is_singular() ) {
+    }/* elseif ( is_singular() ) {
         $title = single_post_title( '', false );
-    }
+    }*/
     return $title;
 }
 add_filter( 'pre_get_document_title', 'my_document_title' );
@@ -480,9 +481,20 @@ add_filter('body_class', 'pagename_class');
 
 
 // wp_headでjQueryを読み込まないようにする方法
-/*
+
 function my_delete_local_jquery() {
     wp_deregister_script('jquery');
 }
 add_action( 'wp_enqueue_scripts', 'my_delete_local_jquery' );
-*/
+
+
+
+// WordPressのアーカイブタイトルのアレンジ
+add_filter( 'get_the_archive_title', function ($title) {
+    if ( is_category() ) {
+            $title = single_cat_title( '', false );
+        } elseif ( is_tag() ) {
+            $title = single_tag_title( '', false );
+        } 
+    return $title;
+});

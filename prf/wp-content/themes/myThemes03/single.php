@@ -50,13 +50,33 @@
       </p>
 
       <div class="bein">
+
+      <?php 
+        $ctm0 = get_post_meta($post->ID, 'cut', true);
+        if(!empty($ctm0)):?>
       <p>
         <?php echo get_post_meta($post->ID , 'cut' ,true); ?>
-      <p>
       </p>
+      <?php endif;?>
+
+      <?php 
+        $ctm1 = get_post_meta($post->ID, 'tobear', true);
+        if(!empty($ctm1)):?>
+      <p>
         【担当】<br>
         <?php echo get_post_meta($post->ID , 'tobear' ,true); ?>
       </p>
+      <?php endif;?>
+
+      <?php 
+        $ctm2 = get_post_meta($post->ID, 'url', true);
+        if(!empty($ctm2)):?>
+      <p>
+        【URL】<br>
+        <a href="<?php echo get_post_meta($post->ID , 'url' ,true); ?>" target="_blank"><?php echo get_post_meta($post->ID , 'url' ,true); ?></a>
+      </p>
+      <?php endif;?>
+
 
       </div>
 

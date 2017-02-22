@@ -378,6 +378,7 @@ h1{
 .h1bg{
   text-align: center;
   position: relative;
+  min-height: 120px; 
 }
 .h1bg h1,
 .h1bg .h1bg_title{
@@ -385,7 +386,6 @@ h1{
   top: 35%;
   left: 0;
   width: 100%;
-  color: #fff;
   margin: 0;
   font-size: 44px;
   line-height: 140%;
@@ -635,6 +635,10 @@ BLOG
 .archive_list_main{
   width: 100%;
   float: none;
+}
+.archive .archive_list_main{
+  width: 68%;
+  float: left;
 }
 .archive_list_sub{
   width: 24%;
@@ -1135,10 +1139,6 @@ div.wpcf7{
     display: inline;
   }
 
-}
-
-
-@media screen and (max-width: 800px){
   .item{
     width: 100%;
     float: none;
@@ -1147,6 +1147,16 @@ div.wpcf7{
   .item:nth-child(odd){
     padding: 0 0 0 0;
   }
+
+  .portfolio_wrap .portfolio_image{
+    width: 100%;
+    float: none;
+  }
+  .portfolio_wrap .portfolio_cmt{
+    width: 100%;
+    float: none;
+  }
+
 }
 
 @media screen and (max-width: 414px){

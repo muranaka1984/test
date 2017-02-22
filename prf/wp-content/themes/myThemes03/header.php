@@ -5,6 +5,7 @@
 	<?php wp_head(); ?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
+  <link href="<?php echo get_template_directory_uri(); ?>/style.css">
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/TweenMax.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.inview.min.js"></script>
@@ -25,7 +26,7 @@
   <div class="header">
     <div class="header_content">
       <p class="logo">
-        <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="株式会社ボンクス"></a>
+        <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php echo bloginfo('name'); ?>"></a>
       </p>
       <ul class="gnavi">
         <li class="nlink"><a href="<?php echo home_url(); ?>">ホーム</a></li>
