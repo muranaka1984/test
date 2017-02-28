@@ -11,6 +11,7 @@
   <!--script type="text/javascript" src="js/pjax.js"></script>
   <script type="text/javascript" src="js/pjax-config.js"></script-->
   <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/naviContentActive.js"></script>
   <title></title>
 </head>
 
@@ -20,54 +21,50 @@
 
   <div class="scene_guide">
     <ul>
-      <li><p>About</p></li>
-      <li><p>Works</p></li>
-      <li><p>Skill</p></li>
+      <li><a href="#top">About</a></li>
+      <li><a href="#nav1">Works</a></li>
+      <li><a href="#nav2">Skill</a></li>
     </ul>
   </div>
 
   <div class="scene_wrapper">
 
-    <div class="scene scene0 active">
+  <div class="scene" id="top">
+      <div class="name">
+        <h2>村中 慎吾<span class="age">(33)</span><small>ムラナカ シンゴ</small></h2>
+      </div>
 
-      <div class="base base_table">
-        <div class="base_table_cell">
-
-          <div class="name">
-            <h2>村中 慎吾<span class="age">(33)</span><small>ムラナカ シンゴ</small></h2>
-          </div>
-
-          <div class="profile">
-            web制作会社、インターネット広告代理店のwebデザイナー・ディレクターを経て、
-            現在はフリーランスとして活動しています。
-          </div>
-
-        </div>
+      <div class="profile">
+        web制作会社、インターネット広告代理店のwebデザイナー・ディレクターを経て、
+        現在はフリーランスとして活動しています。
       </div>
 
 
     </div>
 
 
-    <div class="scene scene_works">
+    <div class="scene" id="nav1">
       <div class="base">
 
-        <h2>仕事実績</h2>
+        <h2>Works</h2>
+        <h3>仕事実績</h3>
+
       </div>
     </div>
 
 
-    <div class="scene scene_skill">
+    <div class="scene" id="nav2">
       <div class="base">
 
-        <h2>スキルシート</h2>
+        <h2>Skill</h2>
+        <h3>スキルシート</h3>
+
       </div>
     </div>
 
 
   </div>
 
-  <div class="bottom"></div>
 
 </body>
 

@@ -60,19 +60,33 @@ $(function(){
   });
 
 
+  // スマホやタブレットを判別
+  var getDevice = (function(){
+    var ua = navigator.userAgent;
+    if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
+      return 'sp';
+    }else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
+      return 'tab';
+    }else{
+      return 'other';
+    }
+  })();
+
 
   // 追従メニュー
-  $(window).mousemove(function(evt) {
-    var cx, cy;
-    cy = (evt.clientY / 20) + 140;
-    cx = (evt.clientX / 20) + 140;
-    return $('.scene_guide').css({
-      "position": "fixed",
-      "top": cy + "px",
-      "left": cx + "px"
+  if( getDevice == 'other' ){
+    $('.scene_guide').addClass('scene_guide_pc')
+    $(window).mousemove(function(evt) {
+      var cx, cy;
+      cy = evt.clientY - 40;
+      cx = evt.clientX + 20;
+      return $('.scene_guide').css({
+        "position": "fixed",
+        "top": cy + "px",
+        "left": cx + "px"
+      });
     });
-  });
-
+  }
 
 
 });
