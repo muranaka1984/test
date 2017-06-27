@@ -1,0 +1,39 @@
+@mixin input($size: base,$height: 40) {
+	display: inline-block;
+	width: inputSize($size);
+	height: $height + px;
+	border: 2px solid color(border,light);
+	@include radius(2);
+}
+@mixin selectBox($width: full,$height: 40,$font-size: 14) {
+	display: inline-block;
+	position: relative;
+	@if $width == full {
+		width: 100%;
+	} @else {
+		width: $width + px;
+	}
+	height: $height + px;
+	border: 2px solid color(border,light);
+	@include radius(2);
+	overflow: hidden;
+	&:before {
+		right: 5%;
+		z-index: 1;
+		top: ($height / 2.6) + px;
+		@include arrow(top,4,color(border));
+		pointer-events: none;
+	}
+	select {
+		width: 100%;
+		height: 100%;
+		padding: 0 25px 0 5px;
+		border: none;
+		@include fz($font-size);
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		option {
+		}
+	}
+}
