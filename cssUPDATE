@@ -1,0 +1,12 @@
+	<?php
+	$styleCSS = '../css/style.css';
+	$loginCSS = '../css/login.css';
+	if (file_exists($styleCSS)) {
+		$styleCSSupdate = date ("YmdHis", filemtime($styleCSS));
+	}
+	if (file_exists($loginCSS)) {
+		$loginCSSupdate = date ("YmdHis", filemtime($loginCSS));
+	}
+	echo '<link rel="stylesheet" href="../css/style.css?ver='.$styleCSSupdate.'" media="all">';
+	echo '<link rel="stylesheet" href="../css/login.css?ver='.$loginCSSupdate.'" media="all">';
+	?>
